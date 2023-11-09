@@ -2,26 +2,17 @@
 using ProjetNarratif.Rooms;
 
 var game = new Game();
-Console.WriteLine(@" __   __  _______  ______    _______  __   __  __   __  _______    _______  _______  ___      _______  ______   
-|  |_|  ||       ||    _ |  |       ||  | |  ||  | |  ||       |  |       ||       ||   |    |       ||    _ |  
-|       ||   _   ||   | ||  |_     _||  | |  ||  | |  ||  _____|  |       ||   _   ||   |    |   _   ||   | ||  
-|       ||  | |  ||   |_||_   |   |  |  |_|  ||  |_|  || |_____   |       ||  | |  ||   |    |  | |  ||   |_||_ 
-|       ||  |_|  ||    __  |  |   |  |       ||       ||_____  |  |      _||  |_|  ||   |___ |  |_|  ||    __  |
-| ||_|| ||       ||   |  | |  |   |  |       ||       | _____| |  |     |_ |       ||       ||       ||   |  | |
-|_|   |_||_______||___|  |_|  |___|  |_______||_______||_______|  |_______||_______||_______||_______||___|  |_|
-"
-
-    );
-game.Add(new ProjetNarratif.Rooms.White());
-game.Add(new Bathroom());
-game.Add(new AtticRoom());
-game.Add(new LivingRoom());
-game.Add(new Phone());
-
+Console.WriteLine(@"
+This was not meant to happen.
+You run through the second floor of the mall, scrambling to find a hiding spot for the night.
+Finally, you find a deserted Walmart with an unlocked door and end up in a small storage room.
+");
+game.Add(new ProjetNarratif.Rooms.Storage());
 while (!game.IsGameOver())
 {
     Console.WriteLine("--");
     Console.WriteLine(game.CurrentRoomDescription);
+    Console.WriteLine(game.CurrentMap);
     string? choice = Console.ReadLine()?.ToLower() ?? "";
     game.ReceiveChoice(choice);
 }
