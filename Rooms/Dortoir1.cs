@@ -18,9 +18,11 @@ Vous pouvez aller manger au réfectoire [1] ou rester [2] et peut être discuter
                 case "1": 
                     Console.WriteLine("Vous sortez du dortoir et arrivez dans la zone commune où se trouve le réfectoire.");
                     Console.ReadKey();
-                    Console.WriteLine("Après avoir mangé, une alarme retentit : ");
-                    Console.ReadKey();
-
+                    Game.Transition<Réfectoire1>();
+                    break;
+                case "2":
+                    Console.WriteLine("Pas implémenté");
+                    Game.Transition<Réfectoire1>();
                     break;
             }
         }

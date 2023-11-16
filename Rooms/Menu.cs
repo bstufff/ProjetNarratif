@@ -4,17 +4,17 @@
     {
         internal override string CreateDescription() =>
             @"Vous êtes un soldat qui vient de finir son service, et qui retourne enfin chez lui.
-Pour rentrer chez vous, vous avez pris une navette spatiale, qui est à quelques jours de votre planète natale.
-Vous pouvez [lancer] le jeu ou [quitter] : ";
+Pour rentrer chez vous, vous avez pris une navette spatiale, et il ne reste que quelques jours avant votre arrivée.
+Vous pouvez lancer le jeu [1] ou quitter [2] : ";
 
         internal override void  ReceiveChoice(string choice)
         {
             switch (choice)
             {
-                case "lancer":
+                case "1":
                     Game.Transition<Dortoir1>();
                     break;
-                case "quitter":
+                case "2":
                     Game.Finish();
                     break;
                 default:
