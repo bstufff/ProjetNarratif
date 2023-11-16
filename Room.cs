@@ -3,7 +3,7 @@
     internal abstract class Room
     {
         internal abstract string CreateDescription();
-        internal abstract string GetMap();
+        public List<string> inventory = new List<string>();
         internal abstract void ReceiveChoice(string choice);
     }
 }

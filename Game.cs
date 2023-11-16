@@ -20,7 +20,6 @@ namespace ProjetNarratif
         }
 
         internal string CurrentRoomDescription => currentRoom.CreateDescription();
-        internal string CurrentMap => currentRoom.GetMap();
 
         internal void ReceiveChoice(string choice)
         {
