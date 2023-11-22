@@ -9,6 +9,7 @@ Vous pouvez lancer le jeu [1] ou quitter [2] : ";
 
         internal override void  ReceiveChoice(string choice)
         {
+            
             switch (choice)
             {
                 case "1":

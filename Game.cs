@@ -1,5 +1,5 @@
 ﻿using ProjetNarratif.Rooms;
-
+using System.Diagnostics;
 namespace ProjetNarratif
 {
     internal class Game
@@ -8,6 +8,7 @@ namespace ProjetNarratif
         Room currentRoom;
         internal bool IsGameOver() => isFinished;
         static bool isFinished;
+        
         static string nextRoom = "";
 
         internal void Add(Room room)
@@ -18,7 +19,7 @@ namespace ProjetNarratif
                 currentRoom = room;
             }
         }
-
+        
         internal string CurrentRoomDescription => currentRoom.CreateDescription();
 
         internal void ReceiveChoice(string choice)
