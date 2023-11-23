@@ -29,16 +29,10 @@ Sinon, vous pouvez passer par le couloir ouest [4].";
                     break;
                 case "3":
                     Console.WriteLine("Il ne reste rien d'utile sur le bureau, mais vous trouvez un tournevis dans un des tiroirs.");
-                    if (inventory.Count <= 5)
-                    {
-                        inventory.Add("tourne-vis");
-                    }
-                    else { 
-                        Console.WriteLine("Vous n'avez plus de place dans votre inventaire, alors vous le remettez là où vous l'avez trouvé");
-                    }
+                    inventory.Add("tournevis");
                     break;
                 case "4":
-                    Console.WriteLine("Vous prenez la porte à votre gauche et rentrez dans le couloir ouest");
+                    Console.WriteLine("Vous prenez la porte à votre gauche et rentrez dans le couloir ouest.");
                     Game.Transition<CouloirO>();
                     break;
                 default:

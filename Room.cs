@@ -5,7 +5,7 @@ namespace ProjetNarratif
     internal abstract class Room
     {
         internal abstract string CreateDescription();
-        public List<string> inventory = new List<string>();
+        public static List<string> inventory = new List<string>();
         public int dmg = 15;
         public struct Enemy {
             public int pv;

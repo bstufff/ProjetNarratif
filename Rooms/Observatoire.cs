@@ -12,7 +12,7 @@ namespace ProjetNarratif.Rooms
         {
             return @"Vous arrivez dans l'observatoire. C'est une grande salle avec une énorme baie vitrée qui permet de voir facilement les astres autour du vaisseau.
 Tout au fond, vous apercevez une porte [1] qui mène probablement à la serre du vaisseau.
-Tant que vous êtes ici, vous pouvez profiter de la vue avant de continuer ";
+Tant que vous êtes ici, vous pouvez profiter de la vue avant de continuer [2].";
         }
         internal override void ReceiveChoice(string choice)
         {

@@ -26,7 +26,7 @@ namespace ProjetNarratif.Rooms
                     dmg = 30;
                     break;
                 case "3":
-                    Console.WriteLine("Vous ne trouvez rien d'utile dans la salle réfrigirée ");
+                    Console.WriteLine("Vous ne trouvez rien d'utile dans la salle réfrigirée.");
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");

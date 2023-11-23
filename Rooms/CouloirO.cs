@@ -10,15 +10,17 @@ namespace ProjetNarratif.Rooms
     {
         internal override string CreateDescription()
         {
-            return @"Dans le couloir, vous remarquez qu'il y a un canal de ventilation [1] qui permettrait de rentrer dans la salle de stockage.
+            return @"Dans le couloir, vous remarquez qu'il y a un canal de ventilation [1] 
+qui permettrait de rentrer dans la salle de stockage.
 Sinon, vous pouvez passer par la salle d'exercice [2]";
         }
         internal override void ReceiveChoice(string choice)
         {
+            
             switch (choice)
             {
                 case "1":
-                    if (inventory.Contains("screwdriver")==true)
+                    if (inventory.Contains("tournevis") ==true)
                     {
                         Console.WriteLine("Vous retirez la plaque avec le tournevis et entrez dans la salle de stockage.");
                         Game.Transition<Cargo1>();
@@ -29,7 +31,7 @@ Sinon, vous pouvez passer par la salle d'exercice [2]";
                     }
                     break;
                 case "2":
-                    Console.WriteLine("Vous ouvrez la porte au bout du couloir et rentrez dans la salle d'exercice");
+                    Console.WriteLine("Vous ouvrez la porte au bout du couloir et rentrez dans la salle d'exercice.");
                     Game.Transition<SalleExercice>();
                     break;
                 default:
