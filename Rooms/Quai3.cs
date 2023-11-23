@@ -36,6 +36,8 @@ L'un a un bras bionique, et l'autre a l'air très résistant.");
                     break;
                 case "2":
                     Console.WriteLine("Vous décidez de passer par la salle de communications.");
+                    Game.Transition<Communications2>();
+                    break;
                 default:
                     Console.WriteLine("Commande invalide.");
                     break;

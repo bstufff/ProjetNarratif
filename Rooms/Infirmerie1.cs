@@ -39,7 +39,7 @@ Sinon, vous pouvez passer par le couloir ouest [4].";
                     break;
                 case "4":
                     Console.WriteLine("Vous prenez la porte à votre gauche et rentrez dans le couloir ouest");
-                    Game.Transition<SalleExercice>();
+                    Game.Transition<CouloirO>();
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");

@@ -19,6 +19,7 @@ namespace ProjetNarratif.Rooms
             {
                 case "1":
                     Console.WriteLine("Vous vous dépêchez de traverser la salle pour arriver devant les quais de lancement.");
+                    Game.Transition<Quai1>();
                     break;
                 case "2":
                     Console.WriteLine("En fouillant dans les boîtes, vous trouvez un pistolet à clou qui pourrait servir d'arme si vous l'utilisez correctement.");

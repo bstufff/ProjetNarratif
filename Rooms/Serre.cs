@@ -30,6 +30,10 @@ Sinon, derrière une rangée de légumes se trouve un couloir menant au quai de 
                         Console.WriteLine("Vous n'avez plus de place dans votre inventaire, alors vous le remettez là où vous l'avez trouvé");
                     }
                     break;
+                case "2":
+                    Console.WriteLine("Vous entrez dans le quai de lancement.");
+                    Game.Transition<Quai1>();
+                    break;
                 default:
                     Console.WriteLine("Commande invalide.");
                     break;

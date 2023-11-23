@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-
+using System.Media;
 namespace ProjetNarratif
 {
     internal abstract class Room
@@ -17,7 +17,9 @@ namespace ProjetNarratif
 
         public bool Combat(bool priority,int _HP, int _DMG, int _heal, int _speed, Enemy[] _enemies)
         {
-
+            SoundPlayer battle = new SoundPlayer(Path.Combine(Environment.CurrentDirectory + @"\battle.wav"));
+            battle.PlayLooping();
+            
             int MaxHP = _HP;
             int choix, action=0;
             Stopwatch timer = new Stopwatch();
@@ -28,6 +30,7 @@ namespace ProjetNarratif
                 if (_HP <= 0)
                 {
                     Console.WriteLine("Vous êtes mort !");
+                    battle.Stop();
                     return false;
                 }
                 timer.Reset();
@@ -111,6 +114,9 @@ namespace ProjetNarratif
                 Console.Clear();
             }
             Console.WriteLine("Vous avez gagné !");
+            battle.Stop();
+            SoundPlayer player = new SoundPlayer(Path.Combine(Environment.CurrentDirectory + @"\ost.wav"));
+            player.PlayLooping();
             return true;
         }
 

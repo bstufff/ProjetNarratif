@@ -54,6 +54,20 @@ Vous pouvez essayer de les affronter directement [1], ou essayer de lancer quelq
                                 break;
                             case "2":
                                 Console.WriteLine("Vous réussissez à dévisser le tuyau de refroidissement du réacteur. ");
+                                Console.ReadKey();
+                                Console.WriteLine("Quelques minutes après, le réacteur surchauffe et coupe l'électricité.");
+                                Console.ReadKey();
+                                Console.WriteLine("Dans la confusion qui ensuit, vous réussissez à fuir sur un des vaisseaux des pirates.");
+                                Console.ReadKey();
+                                Console.WriteLine("Peu après votre départ, le système de recyclage d'oxygène s'arrête, asphyxiant rapidement tous ses occupants, pirates inclus.");
+                                Console.ReadKey();
+                                Console.WriteLine("Quand à vous, vous réussissez à rentrer chez vous sans embûches.");
+                                Console.ReadKey();
+                                Console.WriteLine("Merci d'avoir joué !");
+                                Console.ReadKey();
+                                Console.WriteLine("FIN 2");
+                                Console.ReadKey();
+                                Game.Finish();
                                 break;
                         }
                     }

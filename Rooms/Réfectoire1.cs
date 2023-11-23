@@ -18,7 +18,7 @@ Si vous entendez CECI, c'est que votre message d'urgence BEAUCOUP TROP BRUYANT v
 et que CE vaisseau sera en MA possession dans QUELQUES MINUTES ! 
 
 ET OUI, vous auriez aujourd'hui le BONHEUR de vous faire ABORDER par 
-le pirate le plus CHARISMATIQUE du secteur, le GRAND CHAOTIQUE !
+le pirate le plus CHARISMATIQUE du secteur, le FOU !
 <???> : À TOUT DE SUITE !
 
 Il y a probablement des nacelles de secours dans le quai de lancement.
@@ -43,6 +43,7 @@ ou bien passer par le couloir ouest [4] ";
                     break;
                 case "2":
                     Console.WriteLine("Vous retournez sur vos pas et entrez dans le dortoir.");
+                    Game.Transition<Dortoir2>();
                     break;
                 case "3":
                     Console.WriteLine("Vous vous dirigez vers l'infirmerie");
@@ -50,6 +51,7 @@ ou bien passer par le couloir ouest [4] ";
                     break;
                 case "4":
                     Console.WriteLine("Vous vous dirigez vers le couloir ouest. ");
+                    Game.Transition<CouloirO>();
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");

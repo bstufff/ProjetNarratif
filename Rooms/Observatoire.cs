@@ -20,6 +20,7 @@ Tant que vous êtes ici, vous pouvez profiter de la vue avant de continuer ";
             {
                 case "1":
                     Console.WriteLine("Vous traversez la salle pour atteindre la porte de la serre, que vous arrivez à ouvrir ");
+                    Game.Transition<Serre>();
                     break;
                 case "2":
                     Console.WriteLine(@"Pendant quelques instants, vous observez le panorama incroyable sous vos yeux. 
