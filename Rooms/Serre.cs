@@ -21,14 +21,7 @@ Sinon, derrière une rangée de légumes se trouve un couloir menant au quai de 
             {
                 case "1":
                     Console.WriteLine("Dans un chariot contenant des produits ménagers, vous trouvez un liquide détergent très inflammable.");
-                    if (inventory.Count <= 5)
-                    {
-                        inventory.Add("détergent");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Vous n'avez plus de place dans votre inventaire, alors vous le remettez là où vous l'avez trouvé");
-                    }
+                    dmg += 5;
                     break;
                 case "2":
                     Console.WriteLine("Vous entrez dans le quai de lancement.");

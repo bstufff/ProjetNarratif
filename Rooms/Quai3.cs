@@ -28,7 +28,7 @@ L'un a un bras bionique, et l'autre a l'air très résistant.");
                     pirate2.dmg = 5;
                     pirate2.name = "pirate résistant";
                     Enemy[] enemies = { pirate,pirate2};
-                    if (Combat(true, 50, 15, 10, 3, enemies) == true)
+                    if (Combat(true, 50, dmg, 10, 3, enemies) == true)
                     {
                         Console.WriteLine("Vous réussissez à assommer les deux pirates, et vous vous dirigez vers la salle des machines.");
                     }

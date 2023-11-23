@@ -26,15 +26,7 @@ namespace ProjetNarratif.Rooms
                     dmg = 30;
                     break;
                 case "3":
-                    Console.WriteLine("Dans la salle réfrigirée, vous trouvez beaucoup de nourriture, et vous en mettez dans un petit sac.");
-                    if (inventory.Count <= 5)
-                    {
-                        inventory.Add("nourriture");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Vous n'avez plus de place dans votre inventaire, alors vous le remettez là où vous l'avez trouvé");
-                    }
+                    Console.WriteLine("Vous ne trouvez rien d'utile dans la salle réfrigirée ");
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");

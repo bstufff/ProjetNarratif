@@ -31,7 +31,7 @@ Vous pouvez essayer de l'éliminer rapidement [1] ou de vous cacher [2].";
                     pirate.dmg = 10;
                     pirate.name = "pirate";
                     Enemy[] enemies = {pirate};
-                    if (Combat(false,50, 15, 10, 3, enemies)==true)
+                    if (Combat(false,50, dmg, 10, 3, enemies)==true)
                     {
                         Console.WriteLine("Vous réussissez à éliminer le pirate sans qu'il ne sonne l'alarme.");
                         Game.Transition<Quai3>();
