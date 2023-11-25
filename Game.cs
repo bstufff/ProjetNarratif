@@ -37,7 +37,17 @@ namespace ProjetNarratif
         {
             isFinished = true;
         }
-
+        internal static void DisplayInv() {
+            if (!(Room.inventory.Count == 0)) {
+                Console.WriteLine("Inventaire : \n====================");
+                foreach (Room.Item item in Room.inventory)
+                {
+                    Console.WriteLine($"{item.name} x {item.quantity}");
+                }
+                Console.WriteLine("\n");
+            }
+            
+        }
         internal void CheckTransition()
         {
             foreach (var room in rooms)

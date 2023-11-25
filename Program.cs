@@ -2,7 +2,11 @@
 using ProjetNarratif.Rooms;
 using System.Media;
 var game = new Game();
-Console.WriteLine(@"Bienvenue dans le jeu.
+Console.WriteLine(@"
+ _______ _     _ _______             _______ _______ _______      _______ _______  _____   _____ 
+    |    |_____| |______      |      |_____| |______    |         |______    |    |     | |_____]
+    |    |     | |______      |_____ |     | ______|    |         ______|    |    |_____| |      
+                                                                                                 
 ");
 SoundPlayer player = new SoundPlayer(Path.Combine(Environment.CurrentDirectory + @"\ost.wav"));
 player.PlayLooping();
@@ -24,8 +28,7 @@ game.Add(new Engine1());
 game.Add(new Communications2());
 while (!game.IsGameOver())
 {
-    
-    Console.WriteLine("--");
+    Game.DisplayInv();
     Console.WriteLine(game.CurrentRoomDescription);
     string? choice = Console.ReadLine()?.ToLower() ?? "";
     game.ReceiveChoice(choice);

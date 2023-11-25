@@ -26,7 +26,7 @@ mais entrer dans la salle de stockage nécessite un badge.";
                     Game.Transition<Observatoire>();
                     break;
                 case "2":
-                    if (inventory.Contains("badge") == true)
+                    if (inventory.Contains(badge) == true)
                     {
                         Console.WriteLine("Vous utilisez le badge et arrivez dans la salle de stockage.");
                         Game.Transition<Cargo1>();

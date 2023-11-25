@@ -1,30 +1,64 @@
 ﻿using System.Diagnostics;
 using System.Media;
+using static ProjetNarratif.Room;
+
 namespace ProjetNarratif
 {
     internal abstract class Room
     {
         internal abstract string CreateDescription();
-        public static List<string> inventory = new List<string>();
-        public int dmg = 15;
+        public static List<Item> inventory = new List<Item>();
+        public static int dmg = 15;
+        public static Item badge,lunch,tournevis,briquet,détergent,bandages;
         public struct Enemy {
             public int pv;
+            public int maxpv;
             public int dmg;
             public string name;
         }
+        public struct Item {
+            public int id;
+            public int quantity;
+            public string name;
+            public string description;
+        }
 
-
-
+        static void HPBar(int hp, int maxhp, int type) {
+            Console.Write("PV : [");
+            for (int i = 0; i < maxhp; i = i + 10)
+            {
+                if (hp > i)
+                {
+                    switch (type) {
+                        case 0:
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            break;
+                        case 1:
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            break;
+                    }
+                }
+                Console.Write("\u25A0");
+                Console.ForegroundColor = ConsoleColor.Gray;
+            }
+            Console.WriteLine($"] {hp} / {maxhp}");
+        }
         public bool Combat(bool priority,int _HP, int _DMG, int _heal, int _speed, Enemy[] _enemies)
         {
+            Console.Clear();
             SoundPlayer battle = new SoundPlayer(Path.Combine(Environment.CurrentDirectory + @"\battle.wav"));
             battle.PlayLooping();
-            
             int MaxHP = _HP;
+            bool désinfectant = false;
             int choix, action=0;
             Stopwatch timer = new Stopwatch();
             Random rnd = new Random();
             int alive = _enemies.Length;
+            if (priority == true)
+            {
+                action = 1;
+                Console.WriteLine("Vous prenez l'ennemi par suprise et vous attaquez en premier.");
+            }
             while (alive > 0)
             {
                 if (_HP <= 0)
@@ -35,10 +69,9 @@ namespace ProjetNarratif
                 }
                 timer.Reset();
                 string entry;
-                if (priority==true) {
-                    action = 1;
-                }
-                Console.WriteLine("Vous avez {0} pv ", _HP);
+                
+                HPBar(_HP, MaxHP, 0);
+                
                 switch (action)
                 {
                     case 0:
@@ -63,7 +96,8 @@ namespace ProjetNarratif
                     choix: int x = 0;
                         foreach (Enemy enemy in _enemies)
                         {
-                            Console.WriteLine("Le {0} [{1}] PV:{2} //// ", _enemies[x].name, x + 1, _enemies[x].pv);
+                            Console.Write("Le {0} [{1}] PV: ", _enemies[x].name, x + 1);
+                            HPBar(enemy.pv, enemy.maxpv, 1);
                             x++;
                         }
                         try { choix = Convert.ToInt32(Console.ReadLine()); }
@@ -75,7 +109,7 @@ namespace ProjetNarratif
                         }
                         timer.Restart();
                         timer.Start();
-                        Console.WriteLine("Vous avez {0} secondes pour [attaquer] ou vous [soigner] !", _speed);
+                        Console.WriteLine("Vous avez {0} secondes pour [attaquer] ou utiliser un [objet] !", _speed);
                         entry = Console.ReadLine();
                         timer.Stop();
                         if (timer.ElapsedMilliseconds <= (1000 * _speed) && entry == "attaquer")
@@ -89,17 +123,70 @@ namespace ProjetNarratif
                                 alive--;
                             }
                         }
-                        else if (timer.ElapsedMilliseconds <= (1000 * _speed) && entry == "soigner")
+                        else if (timer.ElapsedMilliseconds <= (1000 * _speed) && entry == "objet")
                         {
-                            if (_heal + _HP > MaxHP)
+                            Console.WriteLine("Inventaire : \n====================");
+                            foreach (Room.Item item in Room.inventory)
                             {
-                                _HP = MaxHP;
-                                Console.WriteLine("Vous récupérez {0} pv !", _heal + _HP - MaxHP);
+                                Console.WriteLine($"[{item.name}] x {item.quantity} : {item.description}");
                             }
-                            else
+                            Console.WriteLine("Quel objet voulez-vous utiliser ?");
+                            string chosen = Console.ReadLine();
+                            switch (chosen)
                             {
-                                _HP += _heal;
-                                Console.WriteLine("Vous récupérez {0} pv !", _heal);
+                                case "badge":
+                                case "Badge":
+                                    Console.WriteLine($"Vous montrez le badge au {_enemies[choix].name}, mais rien ne se passe.");
+                                    break;
+                                case "lunch":
+                                case "Lunch":
+                                    _HP += Heal(_HP, MaxHP, 10, "Vous mangez la moitié du lunch et regagnez {0} PV.");
+                                    break;
+                                case "tournevis":
+                                case "Tournevis":
+                                    Console.WriteLine($"Vous frappez le {_enemies[choix].name} et il perd 15 PV !");
+                                    _enemies[choix - 1].pv -= 15;
+                                    if (_enemies[choix - 1].pv <= 0)
+                                    {
+                                        _enemies[choix - 1].pv = 0;
+                                        Console.WriteLine("");
+                                        alive--;
+                                    }
+                                    break;
+                                case "briquet":
+                                case "Briquet":
+                                    if (désinfectant == true) {
+                                        Console.WriteLine($"Vous brûlez le liquide en dessous du {_enemies[choix].name}, le mettant hors de combat.");
+                                        _enemies[choix - 1].pv -= 999;
+                                        if (_enemies[choix - 1].pv <= 0)
+                                        {
+                                            _enemies[choix - 1].pv = 0;
+                                            Console.WriteLine("");
+                                            alive--;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine($"Vous réussissez à créer une flammèche qui brûle le {_enemies[choix].name} et il perd 10 pv");
+                                        _enemies[choix - 1].pv -= 10;
+                                        if (_enemies[choix - 1].pv <= 0)
+                                        {
+                                            _enemies[choix - 1].pv = 0;
+                                            Console.WriteLine("");
+                                            alive--;
+                                        }
+                                    }
+                                    break;
+                                case "Désinfectant":
+                                case "désinfectant":
+                                    Console.WriteLine("Vous répandez le liquide sur le sol en dessous de vos ennemis.");
+                                    break;
+                                case "Bandages":
+                                case "bandages":
+                                case "bandage":
+                                case "Bandage":
+                                    _HP += Heal(_HP, MaxHP, 15, "Vous utilisez un bandage et regagnez {0} PV.");
+                                    break;
                             }
                         }
                         else
@@ -119,7 +206,23 @@ namespace ProjetNarratif
             player.PlayLooping();
             return true;
         }
-
+        static int Heal(int HP, int Max, int heal, string message) {
+            if (HP + heal <= Max)
+            {
+                Console.WriteLine(message,heal);
+                return heal;
+            }
+            else if (HP <= Max)
+            {
+                Console.WriteLine(message, Max - HP);
+                return Max-HP;
+            }
+            else
+            {
+                Console.WriteLine("Vous ne pouvez pas vous soigner plus que ça !");
+                return 0;
+            }
+        }
         internal abstract void ReceiveChoice(string choice);
 
     }

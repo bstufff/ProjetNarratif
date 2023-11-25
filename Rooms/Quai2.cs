@@ -19,7 +19,7 @@ FIN 3";
         {
             Console.WriteLine("Merci d'avoir joué !");
             Console.ReadKey();
-            Game.Transition<Menu>();
+            Game.Finish();
         }
     }
 }

@@ -20,8 +20,12 @@ Sinon, derrière une rangée de légumes se trouve un couloir menant au quai de 
             switch (choice)
             {
                 case "1":
-                    Console.WriteLine("Dans un chariot contenant des produits ménagers, vous trouvez un liquide détergent très inflammable.");
-                    dmg += 5;
+                    Console.WriteLine("Dans un chariot contenant des produits ménagers, vous trouvez du désinfectant pour les mains.");
+                    détergent.name = "Désinfectant";
+                    détergent.description = "Liquide normalement utilisé pour se nettoyer les mains. Très inflammable.";
+                    détergent.id = 4;
+                    détergent.quantity = 1;
+                    inventory.Add(détergent);
                     break;
                 case "2":
                     Console.WriteLine("Vous entrez dans le quai de lancement.");

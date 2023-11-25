@@ -10,8 +10,8 @@ namespace ProjetNarratif.Rooms
     {
         internal override string CreateDescription()
         {
-            return "Vous êtes dans la salle de stockage. Au fond de la pièce, il y a la porte menant vers le quai de lancement [1]." +
-                "Dans la salle, il y a des rangées d'étagères dédiées au stockage de matériel [2] et une porte menant dans une salle réfrigirée [3].";
+            return @"Vous êtes dans la salle de stockage. Au fond de la pièce, il y a la porte menant vers le quai de lancement [1].
+               Dans la salle, il y a des rangées d'étagères dédiées au stockage de matériel [2] et une porte menant dans une salle réfrigirée [3].";
         }
         internal override void ReceiveChoice(string choice)
         {
@@ -23,7 +23,12 @@ namespace ProjetNarratif.Rooms
                     break;
                 case "2":
                     Console.WriteLine("En fouillant dans les boîtes, vous trouvez un pistolet à clou qui pourrait servir d'arme si vous l'utilisez correctement.");
-                    dmg = 30;
+                    Item pistoletclou;
+                     pistoletclou.name = "Lunch";
+                    pistoletclou.description = "Le repas oublié de quelqu'un. Soigne 30 PV.";
+                    pistoletclou.id = 1;
+                    pistoletclou.quantity = 2;
+                    inventory.Add(lunch);
                     break;
                 case "3":
                     Console.WriteLine("Vous ne trouvez rien d'utile dans la salle réfrigirée.");

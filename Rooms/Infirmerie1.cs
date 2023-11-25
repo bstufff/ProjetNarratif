@@ -25,11 +25,20 @@ Sinon, vous pouvez passer par le couloir ouest [4].";
                     Console.WriteLine("Vous lui proposez de partir avec vous, mais il ne semble pas vous comprendre.");
                     break;
                 case "2":
-                    Console.WriteLine("Vous ouvrez l'armoire où se trouve quelques bandages légers");
+                    Console.WriteLine("Vous ouvrez l'armoire où se trouve quelques bandages légers.");
+                    bandages.name = "Bandages";
+                    bandages.description = "Bon pour les petites blessures. Soigne 15 PV.";
+                    bandages.id = 5;
+                    bandages.quantity = 5;
+                    inventory.Add(bandages);
                     break;
                 case "3":
                     Console.WriteLine("Il ne reste rien d'utile sur le bureau, mais vous trouvez un tournevis dans un des tiroirs.");
-                    inventory.Add("tournevis");
+                    tournevis.name = "Tournevis";
+                    tournevis.description = "Un outil bien utile pour tout ce qui concerne des vis. Fait 10 DMG";
+                    tournevis.id = 2;
+                    tournevis.quantity = 1;
+                    inventory.Add(tournevis);
                     break;
                 case "4":
                     Console.WriteLine("Vous prenez la porte à votre gauche et rentrez dans le couloir ouest.");

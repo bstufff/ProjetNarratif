@@ -23,6 +23,14 @@ Vous pouvez lancer le jeu [1] ou quitter [2] : ";
                 case "2":
                     Game.Finish();
                     break;
+                case "3":
+                    Game.Transition<Quai1>();
+                    lunch.name = "Lunch";
+                    lunch.description = "Le repas oublié de quelqu'un. Soigne 30 PV.";
+                    lunch.id = 1;
+                    lunch.quantity = 2;
+                    inventory.Add(lunch);
+                    break;
                 default:
                     Console.WriteLine("Commande invalide.");
                     break;

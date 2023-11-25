@@ -22,10 +22,12 @@ Vous pouvez éteindre les lumières [1] et essayer de les attaquer de derrière,
 L'un a un bras bionique, et l'autre a l'air très résistant.");
                     Enemy pirate, pirate2;
                     pirate.pv = 25;
-                    pirate.dmg = 15;
+                    pirate.maxpv = 25;
+                    pirate.dmg = 35;
                     pirate.name = "pirate bionique";
                     pirate2.pv = 75;
-                    pirate2.dmg = 5;
+                    pirate2.maxpv = 75;
+                    pirate2.dmg = 15;
                     pirate2.name = "pirate résistant";
                     Enemy[] enemies = { pirate,pirate2};
                     if (Combat(true, 50, dmg, 10, 3, enemies) == true)

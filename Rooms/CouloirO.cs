@@ -20,7 +20,7 @@ Sinon, vous pouvez passer par la salle d'exercice [2]";
             switch (choice)
             {
                 case "1":
-                    if (inventory.Contains("tournevis") ==true)
+                    if (inventory.Contains(tournevis) ==true)
                     {
                         Console.WriteLine("Vous retirez la plaque avec le tournevis et entrez dans la salle de stockage.");
                         Game.Transition<Cargo1>();
