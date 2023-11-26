@@ -9,7 +9,8 @@ namespace ProjetNarratif
         internal abstract string CreateDescription();
         public static List<Item> inventory = new List<Item>();
         public static int dmg = 15;
-        public static Item badge,lunch,tournevis,briquet,détergent,bandages,pistoletclou,pistoletneut;
+        public static byte speed = 3;
+        public static Item badge,lunch,tournevis,briquet,détergent,bandages,pistoletclou,pistoletneut,fusil;
         public struct Enemy {
             public int pv;
             public int maxpv;
@@ -43,7 +44,7 @@ namespace ProjetNarratif
             }
             Console.WriteLine($"] {hp} / {maxhp}");
         }
-        public bool Combat(bool priority,int _HP, int _DMG, int _heal, int _speed, Enemy[] _enemies)
+        public bool Combat(bool priority,int _HP, int _DMG, int _speed, Enemy[] _enemies)
         {
             Console.Clear();
             SoundPlayer battle = new SoundPlayer(Path.Combine(Environment.CurrentDirectory + @"\battle.wav"));
@@ -136,7 +137,7 @@ namespace ProjetNarratif
                             {
                                 case "badge":
                                 case "Badge":
-                                    Console.WriteLine($"Vous montrez le badge au {_enemies[choix].name}, mais rien ne se passe.");
+                                    Console.WriteLine($"Vous montrez le badge au {_enemies[choix-1].name}, mais rien ne se passe.");
                                     break;
                                 case "lunch":
                                 case "Lunch":
@@ -144,7 +145,7 @@ namespace ProjetNarratif
                                     break;
                                 case "tournevis":
                                 case "Tournevis":
-                                    Console.WriteLine($"Vous frappez le {_enemies[choix].name} et il perd 15 PV !");
+                                    Console.WriteLine($"Vous frappez le {_enemies[choix-1].name} et il perd 15 PV !");
                                     _enemies[choix - 1].pv -= 15;
                                     if (_enemies[choix - 1].pv <= 0)
                                     {
@@ -156,7 +157,7 @@ namespace ProjetNarratif
                                 case "briquet":
                                 case "Briquet":
                                     if (désinfectant == true) {
-                                        Console.WriteLine($"Vous brûlez le liquide en dessous du {_enemies[choix].name}, lui infligant 60 dégats!");
+                                        Console.WriteLine($"Vous brûlez le liquide en dessous du {_enemies[choix - 1].name}, lui infligant 60 dégats!");
                                         _enemies[choix - 1].pv -= 60;
                                         if (_enemies[choix - 1].pv <= 0)
                                         {
@@ -167,7 +168,7 @@ namespace ProjetNarratif
                                     }
                                     else
                                     {
-                                        Console.WriteLine($"Vous réussissez à créer une flammèche qui brûle le {_enemies[choix].name} et il perd 10 pv");
+                                        Console.WriteLine($"Vous réussissez à créer une flammèche qui brûle le {_enemies[choix - 1].name} et il perd 10 pv");
                                         _enemies[choix - 1].pv -= 10;
                                         if (_enemies[choix - 1].pv <= 0)
                                         {
@@ -191,7 +192,7 @@ namespace ProjetNarratif
                                 case "Pistolet a clou":
                                 case "pistolet à clou":
                                 case "pistolet a clou":
-                                    Console.WriteLine($"Vous tirez un clou sur le {_enemies[choix].name} et il perd 30 PV !");
+                                    Console.WriteLine($"Vous tirez un clou sur le {_enemies[choix - 1].name} et il perd 30 PV !");
                                     _enemies[choix - 1].pv -= 30;
                                     if (_enemies[choix - 1].pv <= 0)
                                     {
@@ -204,7 +205,7 @@ namespace ProjetNarratif
                                 case "pistolet neutralisant":
                                 case "Pistolet neutralisant":
                                 case "pistolet Neutralisant":
-                                    Console.WriteLine($"Vous tirez sur le {_enemies[choix].name} et il perd 10 PV !");
+                                    Console.WriteLine($"Vous tirez sur le {_enemies[choix - 1].name} et il perd 10 PV !");
                                     _enemies[choix - 1].pv -= 10;
                                     if (_enemies[choix - 1].pv <= 0)
                                     {
@@ -212,12 +213,23 @@ namespace ProjetNarratif
                                         Console.WriteLine("");
                                         alive--;
                                     }
-                                    Console.WriteLine($"Le {_enemies[choix].name} est affaibli !");
+                                    Console.WriteLine($"Le {_enemies[choix - 1  ].name} est affaibli !");
                                     _enemies[choix - 1].dmg -= 10;
                                     if (_enemies[choix - 1].dmg <= 0)
                                     {
                                         _enemies[choix - 1].dmg = 0;
                                         Console.WriteLine("");
+                                    }
+                                    break;
+                                case "fusil":
+                                case "Fusil":
+                                    Console.WriteLine($"Vous tirez sur le {_enemies[choix - 1].name} et il perd 30 PV !");
+                                    _enemies[choix - 1].pv -= 30;
+                                    if (_enemies[choix - 1].pv <= 0)
+                                    {
+                                        _enemies[choix - 1].pv = 0;
+                                        Console.WriteLine("");
+                                        alive--;
                                     }
                                     break;
                             }

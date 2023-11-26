@@ -2,12 +2,7 @@
 using ProjetNarratif.Rooms;
 using System.Media;
 var game = new Game();
-Console.WriteLine(@"
- _______ _     _ _______             _______ _______ _______      _______ _______  _____   _____ 
-    |    |_____| |______      |      |_____| |______    |         |______    |    |     | |_____]
-    |    |     | |______      |_____ |     | ______|    |         ______|    |    |_____| |      
-                                                                                                 
-");
+
 SoundPlayer player = new SoundPlayer(Path.Combine(Environment.CurrentDirectory + @"\ost.wav"));
 player.PlayLooping();
 game.Add(new ProjetNarratif.Rooms.Menu());
@@ -25,7 +20,9 @@ game.Add(new Serre());
 game.Add(new Quai2());
 game.Add(new Quai3());
 game.Add(new Engine1());
+game.Add(new Options());
 game.Add(new Communications2());
+game.Add(new Cargo2());
 while (!game.IsGameOver())
 {
     Game.DisplayInv();
