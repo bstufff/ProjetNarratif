@@ -18,7 +18,18 @@ mais entrer dans la salle de stockage nécessite un badge.";
         
         internal override void ReceiveChoice(string choice)
         {
-            dmg = 25;
+            if (!inventory.Contains(pistoletneut))
+            {
+                pistoletneut.name = "Pistolet neutralisant";
+                pistoletneut.description = "Permet de paralyser un ennemi, faisant 10 dégats et réduisant les dégats du receveur.";
+                pistoletneut.id = 7;
+                pistoletneut.quantity = 2;
+                inventory.Add(pistoletneut);
+            }
+            else
+            {
+                Console.WriteLine("Vous ne trouvez rien de plus dans la salle.");
+            }
             switch (choice)
             {
                 case "1":

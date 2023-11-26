@@ -23,12 +23,20 @@ Vous pouvez aussi fouiller la salle [2], ou profiter de la vue avant de continue
                     Game.Transition<Serre>();
                     break;
                 case "2":
-                    Console.WriteLine("Vous trouvez un briquet sous un siège.");
-                    briquet.name = "Briquet";
-                    briquet.description = "Produit une flammèche.";
-                    briquet.id = 3;
-                    briquet.quantity = 1;
-                    inventory.Add(briquet);
+                    if (!inventory.Contains(briquet))
+                    {
+                        Console.WriteLine("Vous trouvez un briquet sous un siège.");
+                        briquet.name = "Briquet";
+                        briquet.description = "Produit une flammèche.";
+                        briquet.id = 3;
+                        briquet.quantity = 1;
+                        inventory.Add(briquet);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Vous ne trouvez rien de plus dans la salle.");
+                    }
+                    
                     break;
                 case "3":
                     Console.WriteLine(@"Pendant quelques instants, vous observez le panorama incroyable sous vos yeux. 

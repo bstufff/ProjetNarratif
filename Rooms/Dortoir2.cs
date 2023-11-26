@@ -18,12 +18,19 @@ Sur la droite [1], il y a les différents lits des passagers, et sur la gauche [
             switch (choice)
             {
                 case "1":
-                    Console.WriteLine("Vous trouvez sous un lit un badge d'accès qui vous permettra d'aller dans les salles normalement réservées à l'équipage.");
-                    badge.name = "Badge";
-                    badge.id = 0;
-                    badge.quantity = 1;
-                    badge.description = "Un badge permettant d'accéder aux zones réservées à l'équipage.";
-                    inventory.Add(badge);
+                    Console.WriteLine("Vous trouvez sous un lit un badge d'accès qui vous permettra d'aller dans des zones normalement réservées à l'équipage.");
+                    if (!inventory.Contains(badge))
+                    {
+                        badge.name = "Badge";
+                        badge.id = 0;
+                        badge.quantity = 1;
+                        badge.description = "Un badge permettant d'accéder aux zones réservées à l'équipage.";
+                        inventory.Add(badge);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Vous ne trouvez rien de plus dans la salle.");
+                    }
                     break;
                 case "2":
                     Console.WriteLine("Vous prenez le couloir et entrez dans l'infirmerie.");

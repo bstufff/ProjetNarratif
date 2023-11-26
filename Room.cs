@@ -9,7 +9,7 @@ namespace ProjetNarratif
         internal abstract string CreateDescription();
         public static List<Item> inventory = new List<Item>();
         public static int dmg = 15;
-        public static Item badge,lunch,tournevis,briquet,détergent,bandages;
+        public static Item badge,lunch,tournevis,briquet,détergent,bandages,pistoletclou,pistoletneut;
         public struct Enemy {
             public int pv;
             public int maxpv;
@@ -156,8 +156,8 @@ namespace ProjetNarratif
                                 case "briquet":
                                 case "Briquet":
                                     if (désinfectant == true) {
-                                        Console.WriteLine($"Vous brûlez le liquide en dessous du {_enemies[choix].name}, le mettant hors de combat.");
-                                        _enemies[choix - 1].pv -= 999;
+                                        Console.WriteLine($"Vous brûlez le liquide en dessous du {_enemies[choix].name}, lui infligant 60 dégats!");
+                                        _enemies[choix - 1].pv -= 60;
                                         if (_enemies[choix - 1].pv <= 0)
                                         {
                                             _enemies[choix - 1].pv = 0;
@@ -186,6 +186,39 @@ namespace ProjetNarratif
                                 case "bandage":
                                 case "Bandage":
                                     _HP += Heal(_HP, MaxHP, 15, "Vous utilisez un bandage et regagnez {0} PV.");
+                                    break;
+                                case "Pistolet à clou":
+                                case "Pistolet a clou":
+                                case "pistolet à clou":
+                                case "pistolet a clou":
+                                    Console.WriteLine($"Vous tirez un clou sur le {_enemies[choix].name} et il perd 30 PV !");
+                                    _enemies[choix - 1].pv -= 30;
+                                    if (_enemies[choix - 1].pv <= 0)
+                                    {
+                                        _enemies[choix - 1].pv = 0;
+                                        Console.WriteLine("");
+                                        alive--;
+                                    }
+                                    break;
+                                case "Pistolet Neutralisant":
+                                case "pistolet neutralisant":
+                                case "Pistolet neutralisant":
+                                case "pistolet Neutralisant":
+                                    Console.WriteLine($"Vous tirez sur le {_enemies[choix].name} et il perd 10 PV !");
+                                    _enemies[choix - 1].pv -= 10;
+                                    if (_enemies[choix - 1].pv <= 0)
+                                    {
+                                        _enemies[choix - 1].pv = 0;
+                                        Console.WriteLine("");
+                                        alive--;
+                                    }
+                                    Console.WriteLine($"Le {_enemies[choix].name} est affaibli !");
+                                    _enemies[choix - 1].dmg -= 10;
+                                    if (_enemies[choix - 1].dmg <= 0)
+                                    {
+                                        _enemies[choix - 1].dmg = 0;
+                                        Console.WriteLine("");
+                                    }
                                     break;
                             }
                         }

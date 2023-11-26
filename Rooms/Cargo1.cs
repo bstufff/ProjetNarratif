@@ -22,13 +22,18 @@ namespace ProjetNarratif.Rooms
                     Game.Transition<Quai1>();
                     break;
                 case "2":
-                    Console.WriteLine("En fouillant dans les boîtes, vous trouvez un pistolet à clou qui pourrait servir d'arme si vous l'utilisez correctement.");
-                    Item pistoletclou;
-                     pistoletclou.name = "Lunch";
-                    pistoletclou.description = "Le repas oublié de quelqu'un. Soigne 30 PV.";
-                    pistoletclou.id = 1;
-                    pistoletclou.quantity = 2;
-                    inventory.Add(lunch);
+                    if (!inventory.Contains(pistoletclou))
+                    {
+                        Console.WriteLine("En fouillant dans les boîtes, vous trouvez un pistolet à clou qui pourrait servir d'arme si vous l'utilisez correctement.");
+                        pistoletclou.name = "Pistolet à clou";
+                        pistoletclou.description = "Un pistolet à clou. 30 DMG 3 Munitions.";
+                        pistoletclou.id = 6;
+                        pistoletclou.quantity = 3;
+                        inventory.Add(pistoletclou);
+                    }
+                    else {
+                        Console.WriteLine("Vous ne trouvez rien de plus dans la salle.");
+                    }
                     break;
                 case "3":
                     Console.WriteLine("Vous ne trouvez rien d'utile dans la salle réfrigirée.");

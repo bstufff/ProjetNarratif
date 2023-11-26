@@ -21,11 +21,18 @@ Vous pouvez fouiller la salle [1] ou vous diriger vers la salle des machines [2]
             {
                 case "1":
                     Console.WriteLine("Vous trouvez le lunch de quelqu'un dans une poubelle.");
-                    lunch.name = "Lunch";
-                    lunch.description = "Le repas oublié de quelqu'un. Soigne 30 PV.";
-                    lunch.id = 1;
-                    lunch.quantity = 2;
-                    inventory.Add(lunch);
+                    if (!inventory.Contains(lunch))
+                    {
+                        lunch.name = "Lunch";
+                        lunch.description = "Le repas oublié de quelqu'un. Soigne 30 PV.";
+                        lunch.id = 1;
+                        lunch.quantity = 2;
+                        inventory.Add(lunch);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Vous ne trouvez rien de plus dans la salle.");
+                    }
                     break;
                 case "2":
                     Console.WriteLine("Vous entrez dans la salle des machines.");
