@@ -14,26 +14,29 @@ ATTENTION : LE VAISSEAU EST ATTAQUÉ. VEUILLEZ ÉVACUER IMMÉDIATE-
 Le message se coupe, et une musique enfantine se met à jouer.
 <???> : BONJOUR ! BONJOUR ! 
 
-Si vous entendez CECI, c'est que votre message d'urgence BEAUCOUP TROP BRUYANT vient de se faire INTERROMPRE,
+<???> : Si vous entendez CECI, c'est que votre message d'urgence BEAUCOUP TROP BRUYANT vient de se faire INTERROMPRE,
 et que CE vaisseau sera en MA possession dans QUELQUES MINUTES ! 
 
-ET OUI, vous auriez aujourd'hui le BONHEUR de vous faire ABORDER par 
-le pirate le plus CHARISMATIQUE du secteur, le FOU !
+<???> : ET OUI, vous aurez aujourd'hui le BONHEUR de vous faire ABORDER par 
+le pirate le plus CHARISMATIQUE du secteur, MERCURIUS !
 <???> : À TOUT DE SUITE !
 
 Il y a probablement des nacelles de secours dans le quai de lancement.
-Pour y aller, vous pouvez essayer de passer par la salle de communications [1],
-retourner au dortoir [2], aller dans l'infirmerie [3],
-ou bien passer par le couloir ouest [4] ";
+Pour y aller, vous pouvez essayer de passer par la salle de communications, l'infirmerie, le couloir ouest, ou le dortoir.";
         }
-            
+        internal override string CreateOptions() =>
+@"[1] Retourner au dortoir
+[2] Passer par la salle de communications
+[3] Passer par l'infirmerie
+[4] Passer par le couloir ouest";
+
 
 
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)
             {
-                case "1":
+                case "2":
                     Console.WriteLine("La porte de la salle de communications nécessite un code : ");
                     int code;
                     try { code = Convert.ToInt32(Console.ReadLine()); }
@@ -45,7 +48,7 @@ ou bien passer par le couloir ouest [4] ";
                     }
                     else { Console.WriteLine("Vous entrez le code, mais il est incorrect et la porte reste fermée. "); }
                     break;
-                case "2":
+                case "1":
                     Console.WriteLine("Vous retournez sur vos pas et entrez dans le dortoir.");
                     Game.Transition<Dortoir2>();
                     break;

@@ -10,9 +10,13 @@ namespace ProjetNarratif.Rooms
     {
         internal override string CreateDescription() =>
             @"Vous êtes dans l'infirmerie. 
-Tous les patients sont déjà partis, mais il en reste un tout au fond de la salle avec qui vous pouvez parler [1].
-Vous pouvez aussi essayer de trouver quelque chose d'utile dans l'armoire [2] ou le bureau [3]. 
-Sinon, vous pouvez passer par le couloir ouest [4].";
+Tous les patients sont déjà partis, mais il en reste un tout au fond de la salle qui n'a pas l'air d'avoir remarqué votre présence.
+Vous pouvez aussi essayer de trouver quelque chose d'utile dans l'armoire ou le bureau, ou de passer par le couloir ouest.";
+        internal override string CreateOptions() =>
+@"[1] Parler au patient
+[2] Fouiller l'armoire
+[3] Fouiller le bureau
+[4] Partir vers le couloir ouest";
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)

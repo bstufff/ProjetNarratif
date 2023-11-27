@@ -8,7 +8,7 @@ namespace ProjetNarratif
     {
         internal abstract string CreateDescription();
         public static List<Item> inventory = new List<Item>();
-        public static int dmg = 15;
+        public static int dmg = 15, health=100;
         public static byte speed = 3;
         public static Item badge,lunch,tournevis,briquet,détergent,bandages,pistoletclou,pistoletneut,fusil;
         public struct Enemy {
@@ -93,6 +93,10 @@ namespace ProjetNarratif
                         action = 1;
                         break;
                     case 1:
+                        if (_enemies.Length == 1) {
+                            choix = 1;
+                            goto skip;
+                        }
                         Console.WriteLine("Quel ennemi voulez vous cibler ?");
                     choix: int x = 0;
                         foreach (Enemy enemy in _enemies)
@@ -110,7 +114,7 @@ namespace ProjetNarratif
                         }
                         timer.Restart();
                         timer.Start();
-                        Console.WriteLine("Vous avez {0} secondes pour [attaquer] ou utiliser un [objet] !", _speed);
+                        skip: Console.WriteLine("Vous avez {0} secondes pour [attaquer] ou utiliser un [objet] !", _speed);
                         entry = Console.ReadLine();
                         timer.Stop();
                         if (timer.ElapsedMilliseconds <= (1000 * _speed) && entry == "attaquer")
@@ -245,7 +249,7 @@ namespace ProjetNarratif
                 Thread.Sleep(rnd.Next(500, 1000));
                 Console.Clear();
             }
-            Console.WriteLine("Vous avez gagné !");
+            Console.WriteLine("Vous avez remporté le combat !");
             battle.Stop();
             SoundPlayer player = new SoundPlayer(Path.Combine(Environment.CurrentDirectory + @"\ost.wav"));
             player.PlayLooping();
@@ -269,6 +273,8 @@ namespace ProjetNarratif
             }
         }
         internal abstract void ReceiveChoice(string choice);
+
+        internal abstract string CreateOptions();
 
     }
 }

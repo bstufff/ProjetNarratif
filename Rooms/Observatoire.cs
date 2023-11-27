@@ -11,9 +11,13 @@ namespace ProjetNarratif.Rooms
         internal override string CreateDescription()
         {
             return @"Vous arrivez dans l'observatoire. C'est une grande salle avec une énorme baie vitrée qui permet de voir facilement les astres autour du vaisseau.
-Tout au fond, vous apercevez une porte [1] qui mène probablement à la serre du vaisseau.
-Vous pouvez aussi fouiller la salle [2], ou profiter de la vue avant de continuer [2].";
+Tout au fond, vous apercevez une porte qui mène probablement à la serre du vaisseau.
+Vous pouvez aussi fouiller la salle ou juste profiter de la vue.";
         }
+        internal override string CreateOptions() =>
+@"[1] Partir vers la serre
+[2] Fouiller la salle
+[2] Profiter de la vue";
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)

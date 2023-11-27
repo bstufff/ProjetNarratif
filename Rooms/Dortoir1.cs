@@ -8,9 +8,12 @@ namespace ProjetNarratif.Rooms
 {
     internal class Dortoir1 : Room
     {
-        internal override string CreateDescription() => 
+        internal override string CreateDescription() =>
             @"Vous vous réveillez dans le dortoir du vaisseau par votre estomac vide. 
-Vous pouvez aller manger au réfectoire [1] ou rester [2] et peut être discuter avec les autres passagers.";
+Vous pouvez aller manger au réfectoire ou discuter avec les autres passagers.";
+        internal override string CreateOptions() =>
+@"[1] Aller manger au réfectoire
+[2] Parler avec les autres passagers";
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)

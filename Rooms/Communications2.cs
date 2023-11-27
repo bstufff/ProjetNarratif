@@ -11,10 +11,12 @@ namespace ProjetNarratif.Rooms
         internal override string CreateDescription()
         {
             return @"Vous arrivez de justesse dans la salle de communications, qui est remplie de matériel radio.
-Vous pouvez fouiller la salle [1] ou vous diriger vers la salle des machines [2].
-
+Vous pouvez fouiller la salle ou vous diriger vers la salle des machines [2].
 ";
         }
+        internal override string CreateOptions() =>
+@"[1] Fouiller la salle
+[2] Partir vers la salle des machines";
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)

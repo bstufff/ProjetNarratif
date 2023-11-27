@@ -15,8 +15,11 @@ namespace ProjetNarratif.Rooms
 On n'y trouve générallement personne, mais vous apercevez 4 pirates assez costauds accompagnés de ce que vous imaginez être un lieutenant.
 
 Votre arrivée n'a pas encore été remarquée, mais affronter tous les pirates en même temps ne serait pas la meilleure des idées.
-Vous pouvez essayer de les affronter directement [1], ou essayer de lancer quelque chose dans votre inventaire [2].";
+Vous pouvez essayer de les affronter directement ou essayer de trouver quelque chose pour améliorer vos chances.";
         }
+        internal override string CreateOptions() =>
+@"[1] Affronter les pirates 
+[2] Fouiller la salle";
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)

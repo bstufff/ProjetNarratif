@@ -10,9 +10,14 @@ namespace ProjetNarratif.Rooms
     {
         internal override string CreateDescription()
         {
-            return @"Vous êtes dans la salle de stockage. Au fond de la pièce, il y a la porte menant vers le quai de lancement [1].
-Dans la salle, il y a des rangées d'étagères dédiées au stockage de matériel [2] et une porte menant dans une salle réfrigirée [3].";
+            return @"Vous êtes dans la salle de stockage. Dans la salle on retrouve des rangées d'étagères 
+dédiées au stockage de matériel, une salle réfrigirée et une porte menant au quai de lancement.";
         }
+        internal override string CreateOptions() =>
+@"[1] Partir vers le quai de lancement
+[2] Fouiller les étagères
+[3] Salle réfrigirée";
+        
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)

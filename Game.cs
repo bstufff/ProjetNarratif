@@ -22,6 +22,8 @@ namespace ProjetNarratif
         
         internal string CurrentRoomDescription => currentRoom.CreateDescription();
 
+        internal string CurrentRoomOptions => currentRoom.CreateOptions();
+
         internal void ReceiveChoice(string choice)
         {
             currentRoom.ReceiveChoice(choice);

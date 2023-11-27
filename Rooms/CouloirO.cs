@@ -10,10 +10,12 @@ namespace ProjetNarratif.Rooms
     {
         internal override string CreateDescription()
         {
-            return @"Dans le couloir, vous remarquez qu'il y a un canal de ventilation [1] 
-qui permettrait de rentrer dans la salle de stockage.
-Sinon, vous pouvez passer par la salle d'exercice [2]";
+            return @"Dans le couloir, vous remarquez qu'il y a un conduit de ventilation relié à la salle de stockage 
+et l'entrée de la salle d'exercice au fond";
         }
+        internal override string CreateOptions() =>
+@"[1] Examiner le conduit
+[2] Partir vers la salle d'exercice";
         internal override void ReceiveChoice(string choice)
         {
             

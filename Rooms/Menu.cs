@@ -7,38 +7,42 @@ namespace ProjetNarratif.Rooms
         internal override string CreateDescription()
         {
             return @"
- _______ _     _ _______             _______ _______ _______      _______ _______  _____   _____ 
-    |    |_____| |______      |      |_____| |______    |         |______    |    |     | |_____]
-    |    |     | |______      |_____ |     | ______|    |         ______|    |    |_____| |      
-                                                                                                 
-Vous êtes un soldat qui vient de finir son service, et qui retourne enfin chez lui.
-Pour rentrer chez vous, vous avez pris une navette spatiale, et il ne reste que quelques jours avant votre arrivée.
-Vous pouvez lancer le jeu [1], configurer les options [2] ou quitter [3] : ";
+_________ _______  _______  _______ _________ _                 _______ 
+\__   __/(  ____ \(  ____ )(       )\__   __/( (    /||\     /|(  ____ \
+   ) (   | (    \/| (    )|| () () |   ) (   |  \  ( || )   ( || (    \/
+   | |   | (__    | (____)|| || || |   | |   |   \ | || |   | || (_____ 
+   | |   |  __)   |     __)| |(_)| |   | |   | (\ \) || |   | |(_____  )
+   | |   | (      | (\ (   | |   | |   | |   | | \   || |   | |      ) |
+   | |   | (____/\| ) \ \__| )   ( |___) (___| )  \  || (___) |/\____) |
+   )_(   (_______/|/   \__/|/     \|\_______/|/    )_)(_______)\_______)
+                                                                                                                                                                        
+Vous êtes un soldat qui vient de finir son service et qui retourne enfin chez lui.
+Pour rentrer chez vous, vous avez pris une navette spatiale, et il ne reste que quelques jours avant votre arrivée.";
 
         }
-
+        internal override string CreateOptions() =>
+@"[1] Lancer le jeu
+[2] Options
+[3] Quitter";
         internal override void  ReceiveChoice(string choice)
         {
             
             switch (choice)
             {
                 case "1":
-                    Console.WriteLine("Bon jeu !");
+                    Console.WriteLine("Le jeu va maintenant commencer, appuyez sur entrée pour continuer.");
                     Game.Transition<Dortoir1>();
                     break;
                 case "2":
+                    Console.WriteLine("Ouverture des options, appuyez sur entrée pour continuer");
                     Game.Transition<Options>();
                     break;
                 case "3":
+                    Console.WriteLine("Merci d'avoir joué !");
                     Game.Finish();
                     break;
                 case "4":
                     Game.Transition<Quai1>();
-                    lunch.name = "Lunch";
-                    lunch.description = "Le repas oublié de quelqu'un. Soigne 30 PV.";
-                    lunch.id = 1;
-                    lunch.quantity = 2;
-                    inventory.Add(lunch);
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");

@@ -12,9 +12,12 @@ namespace ProjetNarratif.Rooms
         internal override string CreateDescription()
         {
             return @"Vous arrivez dans la serre où les aliments frais sont cultivés à bord. 
-Il n'y a pas grand chose à faire ici, mais vous pouvez essayer de fouiller la salle pour quelque chose d'utile [1].
-Sinon, derrière une rangée de légumes se trouve un couloir menant au quai de lancement [2].";
+Il n'y a pas grand chose à faire ici, mais vous pouvez essayer de fouiller la salle pour quelque chose d'utile.
+Sinon, derrière une rangée de légumes se trouve un couloir menant au quai de lancement.";
         }
+        internal override string CreateOptions() =>
+@"[1] Fouiller la salle
+[2] Aller dans le quai de lancement";
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)

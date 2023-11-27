@@ -11,8 +11,11 @@ namespace ProjetNarratif.Rooms
         internal override string CreateDescription()
         {
             return @"Les occupants du dortoirs sont tous déjà partis, mais certains ont laissé leurs affaires dans la salle.
-Sur la droite [1], il y a les différents lits des passagers, et sur la gauche [2] il y a un couloir menant directement à l'infirmerie.";
+Il y a sur la droite les différents lits des passagers, et sur la gauche un couloir menant directement à l'infirmerie.";
         }
+        internal override string CreateOptions() =>
+@"[1] Fouiller la salle
+[2] Partir vers l'infirmerie";
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)

@@ -10,16 +10,33 @@ namespace ProjetNarratif.Rooms
     {
         internal override string CreateDescription()
         {
-            return @"Vous arrivez à rentrer dans la dernière nacelle avant qu'elle parte, laissant la majorité des occupants du vaisseau 
-à la merci des pirates. Ce n'était peut-être pas l'option la plus honorable, mais au moins vous êtes vivant.
-
-FIN 3";
+            return @"Vous arrivez devant les quais de lancement, où la dernière nacelle se prépare à partir.
+Vous pouvez aussi rester et essayer de reprendre le vaisseau au pirates, mais cela ne sera pas facile.";
         }
+        internal override string CreateOptions() =>
+            @"[1] Fuir le vaisseau
+[2] Rester";
+            
         internal override void ReceiveChoice(string choice)
         {
-            Console.WriteLine("Merci d'avoir joué !");
-            Console.ReadKey();
-            Game.Finish();
+            switch (choice)
+            {
+                case "1":
+                    Console.WriteLine(@"Vous réussissez à grimper dans la nacelle juste avant son départ, abandonnant
+tous ceux qui n'ont pas atteint les nacelles à temps. Ce n'était peut-être pas la façon 
+la plus honorable de s'en sortir, mais au moins vous êtes encore vivant.
+
+FIN 3");
+                    Game.Transition<Menu>();
+                    break;
+                case "2":
+                    Console.WriteLine("Vous décidez de rester pour essayer de reprendre contrôle du vaisseau.");
+                    Game.Transition<Quai3>();
+                    break;
+                default:
+                    Console.WriteLine("Commande invalide.");
+                    break;
+            }
         }
     }
 }
