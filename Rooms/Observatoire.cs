@@ -17,7 +17,7 @@ Vous pouvez aussi fouiller la salle ou juste profiter de la vue.";
         internal override string CreateOptions() =>
 @"[1] Partir vers la serre
 [2] Fouiller la salle
-[2] Profiter de la vue";
+[3] Profiter de la vue";
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)
@@ -46,7 +46,7 @@ Vous pouvez aussi fouiller la salle ou juste profiter de la vue.";
                     Console.WriteLine(@"Pendant quelques instants, vous observez le panorama incroyable sous vos yeux. 
 Vous remarquez un avis destiné à l'équipage derrière une porte :
                     AVIS
-Le code de la salle de communications a été changé. 
+Le code de la salle des communications a été changé. 
     La bonne combinaison est maintenant 3952.");
                     break;
                 default:

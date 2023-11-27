@@ -2,7 +2,7 @@
 using ProjetNarratif.Rooms;
 using System.Media;
 var game = new Game();
-
+Room lastroom;
 SoundPlayer player = new SoundPlayer(Path.Combine(Environment.CurrentDirectory + @"\ost.wav"));
 player.PlayLooping();
 game.Add(new ProjetNarratif.Rooms.Menu());
@@ -27,6 +27,7 @@ while (!game.IsGameOver())
 {
     Game.DisplayInv();
     Console.WriteLine(game.CurrentRoomDescription);
+    Console.WriteLine();
     Console.ForegroundColor = ConsoleColor.Blue;
     Console.WriteLine(game.CurrentRoomOptions);
     Console.ResetColor();
@@ -36,6 +37,4 @@ while (!game.IsGameOver())
     Console.ReadKey();
     Console.Clear();
 }
-
-Console.WriteLine("FIN");
 Console.ReadLine();

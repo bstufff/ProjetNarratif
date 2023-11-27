@@ -11,7 +11,7 @@ namespace ProjetNarratif.Rooms
         internal override string CreateDescription()
         {
             return @"Dans le couloir, vous remarquez qu'il y a un conduit de ventilation relié à la salle de stockage 
-et l'entrée de la salle d'exercice au fond";
+et l'entrée de la salle d'exercice au fond.";
         }
         internal override string CreateOptions() =>
 @"[1] Examiner le conduit

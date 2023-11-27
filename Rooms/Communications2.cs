@@ -10,7 +10,7 @@ namespace ProjetNarratif.Rooms
     {
         internal override string CreateDescription()
         {
-            return @"Vous arrivez de justesse dans la salle de communications, qui est remplie de matériel radio.
+            return @"Vous arrivez de justesse dans la salle des communications, qui est remplie de matériel radio.
 Vous pouvez fouiller la salle ou vous diriger vers la salle des machines [2].
 ";
         }

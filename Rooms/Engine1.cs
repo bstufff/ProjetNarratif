@@ -12,7 +12,7 @@ namespace ProjetNarratif.Rooms
         internal override string CreateDescription()
         {
             return @"On retrouve dans la salle des machines toutes les différents circuits et tuyaux nécéssaires au fonctionnement du vaisseau.
-On n'y trouve générallement personne, mais vous apercevez 4 pirates assez costauds accompagnés de ce que vous imaginez être un lieutenant.
+On n'y trouve généralement personne, mais vous apercevez 2 pirates assez costauds accompagnés de ce que vous imaginez être un lieutenant.
 
 Votre arrivée n'a pas encore été remarquée, mais affronter tous les pirates en même temps ne serait pas la meilleure des idées.
 Vous pouvez essayer de les affronter directement ou essayer de trouver quelque chose pour améliorer vos chances.";
@@ -35,20 +35,12 @@ Vous pouvez essayer de les affronter directement ou essayer de trouver quelque c
                     pirate2.maxpv = 50;
                     pirate2.dmg = 10;
                     pirate2.name = "garde pirate";
-                    pirate3.pv = 50;
-                    pirate3.maxpv = 50;
-                    pirate3.dmg = 10;
-                    pirate3.name = "garde pirate";
-                    pirate4.pv = 50;
-                    pirate4.maxpv = 50;
-                    pirate4.dmg = 10;
-                    pirate4.name = "garde pirate";
                     souschef.pv = 120;
                     souschef.maxpv = 120;
                     souschef.dmg = 30;
                     souschef.name = "lieutenant";
-                    Enemy[] enemies = { pirate, pirate2, pirate3, pirate4, souschef};
-                    if (Combat(true, 100, dmg, speed, enemies) == true)
+                    Enemy[] enemies = { pirate, pirate2, souschef};
+                    if (Combat(true, health, dmg, speed, enemies) == true)
                     {
                         Console.WriteLine("Au moment où le dernier pirate s'écroule, vous remarquez que le réservoire de carburant est dévérouillé.");
                         Console.WriteLine("Vous pouvez aller vers le cockpit en passant par la salle de stockage et affronter le chef des pirates [1], ou essayer de saboter les moteurs du vaisseau [2].");
@@ -65,11 +57,11 @@ Vous pouvez essayer de les affronter directement ou essayer de trouver quelque c
                                 Console.ReadKey();
                                 Console.WriteLine("Quelques minutes après, le réacteur surchauffe et coupe l'électricité.");
                                 Console.ReadKey();
-                                Console.WriteLine("Dans la confusion qui ensuit, vous réussissez à fuir sur un des vaisseaux des pirates.");
+                                Console.WriteLine("Dans la confusion qui s'en suit, vous réussissez à fuir sur un des vaisseaux des pirates.");
                                 Console.ReadKey();
-                                Console.WriteLine("Peu après votre départ, le système de recyclage d'oxygène s'arrête, asphyxiant rapidement tous ses occupants, pirates inclus.");
+                                Console.WriteLine("Quand à vous, vous réussissez à rentrer chez vous sans embûche, mais tous ceux qui sont restés à bord n'ont probablement pas survécu.");
                                 Console.ReadKey();
-                                Console.WriteLine("Quand à vous, vous réussissez à rentrer chez vous sans embûches.");
+                                Console.WriteLine("Cette histoire aurait pu mieux se finir.");
                                 Console.ReadKey();
                                 Console.WriteLine("Merci d'avoir joué !");
                                 Console.ReadKey();
@@ -79,6 +71,9 @@ Vous pouvez essayer de les affronter directement ou essayer de trouver quelque c
                                 break;
                         }
                     }
+                    break;
+                case "2":
+                    Console.WriteLine();
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");

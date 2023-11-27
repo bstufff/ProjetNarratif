@@ -11,7 +11,7 @@ namespace ProjetNarratif.Rooms
         internal override string CreateDescription()
         {
             
-            return @"Vous arrivez enfin devant les quais de lancement juste à temps pour voir la dernière nacelle s'enfuir vers la planète la plus proche.
+            return @"Vous arrivez enfin devant le quai de lancement juste à temps pour voir la dernière nacelle s'enfuir vers la planète la plus proche.
 
 Les pirates de ce secteur ne sont pas des plus cléments, alors le seul moyen d'arriver sain et sauf à votre destination est de reprendre contrôle du vaisseau.
 
@@ -35,7 +35,7 @@ Vous pouvez essayer de l'éliminer rapidement ou vous cacher.";
                     pirate.dmg = 10;
                     pirate.name = "pirate";
                     Enemy[] enemies = {pirate};
-                    if (Combat(false,100, dmg, speed, enemies)==true)
+                    if (Combat(false,100, health, speed, enemies)==true)
                     {
                         Console.WriteLine("Vous réussissez à éliminer le pirate sans qu'il ne sonne l'alarme.");
                         Game.Transition<Quai3>();

@@ -6,7 +6,7 @@ namespace ProjetNarratif.Rooms
     {
         internal override string CreateDescription()
         {
-            return @"
+            Console.WriteLine(@"
 _________ _______  _______  _______ _________ _                 _______ 
 \__   __/(  ____ \(  ____ )(       )\__   __/( (    /||\     /|(  ____ \
    ) (   | (    \/| (    )|| () () |   ) (   |  \  ( || )   ( || (    \/
@@ -17,7 +17,8 @@ _________ _______  _______  _______ _________ _                 _______
    )_(   (_______/|/   \__/|/     \|\_______/|/    )_)(_______)\_______)
                                                                                                                                                                         
 Vous êtes un soldat qui vient de finir son service et qui retourne enfin chez lui.
-Pour rentrer chez vous, vous avez pris une navette spatiale, et il ne reste que quelques jours avant votre arrivée.";
+Pour rentrer chez vous, vous avez pris une navette spatiale, et il ne reste que quelques jours avant votre arrivée.");
+            return "";
 
         }
         internal override string CreateOptions() =>

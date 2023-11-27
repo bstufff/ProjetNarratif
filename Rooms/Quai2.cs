@@ -10,7 +10,7 @@ namespace ProjetNarratif.Rooms
     {
         internal override string CreateDescription()
         {
-            return @"Vous arrivez devant les quais de lancement, où la dernière nacelle se prépare à partir.
+            return @"Vous arrivez devant le quai de lancement, où la dernière nacelle se prépare à partir.
 Vous pouvez aussi rester et essayer de reprendre le vaisseau au pirates, mais cela ne sera pas facile.";
         }
         internal override string CreateOptions() =>

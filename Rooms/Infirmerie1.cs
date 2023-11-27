@@ -24,7 +24,7 @@ Vous pouvez aussi essayer de trouver quelque chose d'utile dans l'armoire ou le 
                 case "1":
                     Console.WriteLine("Le dernier patient remue, et se met à parler d'une voix très grave :");
                     Console.ReadKey();
-                    Console.WriteLine("<Patient> : C'est les androides qui ont fait ça ! Ils nous volent nos travails !");
+                    Console.WriteLine("<Patient> : Ce sont les androides qui ont fait ça ! Ils nous volent nos emplois !");
                     Console.ReadKey();
                     Console.WriteLine("Vous lui proposez de partir avec vous, mais il ne semble pas vous comprendre.");
                     break;

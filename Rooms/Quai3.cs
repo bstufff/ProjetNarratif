@@ -11,7 +11,7 @@ namespace ProjetNarratif.Rooms
         internal override string CreateDescription()
         {
             return @"Vous entendez plus de pirates arriver de la serre. 
-Vous pouvez éteindre les lumières et essayer de les attaquer de derrière, ou bien fuir vers la salle de communications.";
+Vous pouvez éteindre les lumières et essayer de les attaquer par derrière, ou bien fuir vers la salle de communications.";
         }
         internal override string CreateOptions() =>
 @"[1] Éteindre les lumières
@@ -33,14 +33,15 @@ L'un a un bras bionique, et l'autre a l'air très résistant.");
                     pirate2.dmg = 15;
                     pirate2.name = "pirate résistant";
                     Enemy[] enemies = { pirate,pirate2};
-                    if (Combat(true, 100, dmg, speed, enemies) == true)
+                    if (Combat(true, health, dmg, speed, enemies) == true)
                     {
-                        Console.WriteLine("Vous avez réussi à assommer les deux pirates, et maintenant vous vous dirigez vers la salle des machines.");
+                        Console.WriteLine("Vous avez réussi à éliminer les deux pirates, et maintenant vous vous dirigez vers la salle des machines.");
+                        Game.Transition<Engine1>();
                     }
                     else { Game.Transition<Menu>(); }
                     break;
                 case "2":
-                    Console.WriteLine("Vous décidez de passer par la salle de communications.");
+                    Console.WriteLine("Vous décidez de passer par la salle des communications.");
                     Game.Transition<Communications2>();
                     break;
                 default:

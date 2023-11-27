@@ -21,9 +21,9 @@ Il y a sur la droite les différents lits des passagers, et sur la gauche un cou
             switch (choice)
             {
                 case "1":
-                    Console.WriteLine("Vous trouvez sous un lit un badge d'accès qui vous permettra d'aller dans des zones normalement réservées à l'équipage.");
                     if (!inventory.Contains(badge))
                     {
+                        Console.WriteLine("Vous trouvez sous un lit un badge d'accès qui vous permettra d'aller dans des zones normalement réservées à l'équipage.");
                         badge.name = "Badge";
                         badge.id = 0;
                         badge.quantity = 1;

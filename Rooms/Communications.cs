@@ -10,7 +10,7 @@ namespace ProjetNarratif.Rooms
     {
         internal override string CreateDescription()
         {
-            return @"La salle de communications est remplie d'ordinateurs et de matériel radio.
+            return @"La salle des communications est remplie d'ordinateurs et de matériel radio.
 Vous pouvez fouiller la salle, ou partir directement vers le quai de lancement.";
         }
         internal override string CreateOptions() =>

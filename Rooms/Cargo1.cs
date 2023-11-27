@@ -10,7 +10,7 @@ namespace ProjetNarratif.Rooms
     {
         internal override string CreateDescription()
         {
-            return @"Vous êtes dans la salle de stockage. Dans la salle on retrouve des rangées d'étagères 
+            return @"Vous êtes dans la salle de stockage : on y retrouve des rangées d'étagères 
 dédiées au stockage de matériel, une salle réfrigirée et une porte menant au quai de lancement.";
         }
         internal override string CreateOptions() =>
@@ -23,7 +23,7 @@ dédiées au stockage de matériel, une salle réfrigirée et une porte menant a
             switch (choice)
             {
                 case "1":
-                    Console.WriteLine("Vous vous dépêchez de traverser la salle pour arriver devant les quais de lancement.");
+                    Console.WriteLine("Vous vous dépêchez de traverser la salle pour arriver devant le quai de lancement.");
                     Game.Transition<Quai1>();
                     break;
                 case "2":

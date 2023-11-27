@@ -5,7 +5,7 @@ namespace ProjetNarratif
     internal class Game
     {
         List<Room> rooms = new();
-        Room currentRoom;
+        internal Room currentRoom;
         internal bool IsGameOver() => isFinished;
         static bool isFinished;
         
