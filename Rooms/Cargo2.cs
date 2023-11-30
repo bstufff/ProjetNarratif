@@ -34,8 +34,8 @@ car des caisses sont éparpillées un peu partout, dont une qui est déjà ouver
                 case "2":
                     if (!inventory.Contains(adrénaline))
                     {
-                        Console.WriteLine("Vous trouvez un fusil dans la caisse.");
-                        inventory.Add(fusil);
+                        Console.WriteLine("Vous ouvrez une autre caisse et y trouvez une seringue d'adrénaline.");
+                        inventory.Add(adrénaline);
                     }
                     else
                     {
@@ -43,7 +43,8 @@ car des caisses sont éparpillées un peu partout, dont une qui est déjà ouver
                     }
                     break;
                 case "3":
-                    Console.WriteLine("pas fini !");
+                    Console.WriteLine("Vous traversez la salle et arrivez devant le cockpit.");
+                    Game.Transition<Cockpit>();
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");

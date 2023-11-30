@@ -27,7 +27,7 @@ tous ceux qui n'ont pas atteint les nacelles à temps. Ce n'était peut-être pa
 la plus honorable de s'en sortir, mais au moins vous êtes encore vivant.
 
 FIN 3");
-                    Game.Transition<Menu>();
+                    Game.Finish();
                     break;
                 case "2":
                     Console.WriteLine("Vous décidez de rester pour essayer de reprendre contrôle du vaisseau.");

@@ -43,10 +43,6 @@ Vous pouvez aussi essayer de trouver quelque chose d'utile dans l'armoire ou le 
                     if (!inventory.Contains(tournevis))
                     {
                         Console.WriteLine("Il ne reste rien d'utile sur le bureau, mais vous trouvez un tournevis dans un des tiroirs.");
-                        tournevis.name = "Tournevis";
-                        tournevis.description = "Un outil bien utile pour tout ce qui concerne des vis. Fait 10 DMG";
-                        tournevis.id = 2;
-                        tournevis.quantity = 1;
                         inventory.Add(tournevis);
                     }
                     else

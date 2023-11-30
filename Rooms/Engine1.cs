@@ -80,6 +80,7 @@ Vous pouvez essayer de les affronter directement ou essayer de trouver quelque c
                     break;
                 case "2":
                     Console.WriteLine("Vous trouvez un fumigène dans une caisse, et vous l'utilisez pour répandre de la fumée de la salle avant d'attaquer le groupe.");
+                    Console.ReadKey();
                     pirate.pv = 50;
                     pirate.accuracy = 50;
                     pirate.maxpv = 50;
@@ -106,7 +107,6 @@ Vous pouvez essayer de les affronter directement ou essayer de trouver quelque c
                             case "1":
                                 Console.WriteLine("Vous entrez dans la salle de stockage.");
                                 Game.Transition<Cargo2>();
-                                Game.Finish();
                                 break;
                             case "2":
                                 Console.WriteLine("Vous réussissez à dévisser le tuyau de refroidissement du réacteur. ");

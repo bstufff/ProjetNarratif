@@ -37,7 +37,7 @@ dédiées au stockage de matériel, une salle réfrigérée et une porte menant 
                     }
                     break;
                 case "3":
-                    Console.WriteLine("Vous trouvez 3 seringues d'adrénaline dans la salle réfrigirée.");
+                    Console.WriteLine("Vous ne trouvez rien de plus dans la salle réfrigirée..");
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");

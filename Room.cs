@@ -10,8 +10,10 @@ namespace ProjetNarratif
         public static List<Item> inventory = new List<Item>();
         public static int dmg = 15, health=100;
         public static byte speed = 3;
-        public static Item badge,tournevis,briquet;
-        public static Item pistoletclou = new Item(6, 1, "Pistolet à clou", "Un pistolet à clou. 25 DMG 3 Munitions.");
+        public static Item badge = new Item(0, 1, "Badge", "Un badge permettant d'accéder aux zones réservées à l'équipage.");
+        public static Item tournevis = new Item(2, 1, "Tournevis", "Un outil bien utile pour tout ce qui concerne des vis. Fait 10 DMG");
+        public static Item briquet = new Item(3,1,"Briquet", "Produit une flammèche.");
+        public static Item pistoletclou = new Item(6, 6, "Pistolet à clou", "Un pistolet à clou. 25 DMG 6 Munitions.");
         public static Item lunch = new Item(1, 2, "Lunch", "Le repas oublié de quelqu'un. Soigne 30 PV.");
         public static Item détergent = new Item(4,1, "Désinfectant", "Liquide normalement utilisé pour se nettoyer les mains. Très inflammable.");
         public static Item bandages = new Item(5,5, "Bandages", "Bon pour les petites blessures. Soigne 15 PV.");
@@ -221,6 +223,7 @@ namespace ProjetNarratif
                                     case "désinfectant":
                                         Console.WriteLine("Vous répandez le liquide sur le sol en dessous de vos ennemis.");
                                         détergent.SetQuantity(détergent.quantity - 1);
+                                        désinfectant = true;
                                         if (détergent.quantity == 0)
                                         {
                                             Room.inventory.Remove(détergent);
@@ -299,8 +302,9 @@ namespace ProjetNarratif
                                     case "Adrénaline":
                                     case "adrenaline":
                                     case "Adrenaline":
-                                        Console.WriteLine($"Vous utilisez la seringue {_enemies[choix - 1].name}!");
+                                        Console.WriteLine($"Vous utilisez la seringue !");
                                         dmg = 35;
+                                        _HP = _HP - 50;
                                         adrénaline.SetQuantity(adrénaline.quantity - 1);
                                         if (adrénaline.quantity == 0)
                                         {

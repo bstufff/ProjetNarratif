@@ -44,8 +44,10 @@ Pour rentrer chez vous, vous avez pris une navette spatiale, et il ne reste que 
                     Game.Finish();
                     break;
                 case "4":
-                    inventory.Add(pistoletclou);
-                    Game.Transition<Quai1>();
+                    inventory.Add(détergent);
+                    inventory.Add(briquet);
+                    inventory.Add(fusil);
+                    Game.Transition<Cockpit>();
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");

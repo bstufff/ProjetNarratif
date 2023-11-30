@@ -30,10 +30,7 @@ Vous pouvez aussi fouiller la salle ou juste profiter de la vue.";
                     if (!inventory.Contains(briquet))
                     {
                         Console.WriteLine("Vous trouvez un briquet sous un siège.");
-                        briquet.name = "Briquet";
-                        briquet.description = "Produit une flammèche.";
-                        briquet.id = 3;
-                        briquet.quantity = 1;
+
                         inventory.Add(briquet);
                     }
                     else

@@ -23,6 +23,8 @@ game.Add(new Engine1());
 game.Add(new Options());
 game.Add(new Communications2());
 game.Add(new Cargo2());
+game.Add(new Réfectoire2());
+game.Add(new Cockpit());
 while (!game.IsGameOver())
 {
     Game.DisplayInv();
