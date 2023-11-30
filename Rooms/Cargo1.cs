@@ -11,7 +11,7 @@ namespace ProjetNarratif.Rooms
         internal override string CreateDescription()
         {
             return @"Vous êtes dans la salle de stockage : on y retrouve des rangées d'étagères 
-dédiées au stockage de matériel, une salle réfrigirée et une porte menant au quai de lancement.";
+dédiées au stockage de matériel, une salle réfrigérée et une porte menant au quai de lancement.";
         }
         internal override string CreateOptions() =>
 @"[1] Partir vers le quai de lancement
@@ -30,10 +30,6 @@ dédiées au stockage de matériel, une salle réfrigirée et une porte menant a
                     if (!inventory.Contains(pistoletclou))
                     {
                         Console.WriteLine("En fouillant dans les boîtes, vous trouvez un pistolet à clou qui pourrait servir d'arme si vous l'utilisez correctement.");
-                        pistoletclou.name = "Pistolet à clou";
-                        pistoletclou.description = "Un pistolet à clou. 30 DMG 3 Munitions.";
-                        pistoletclou.id = 6;
-                        pistoletclou.quantity = 3;
                         inventory.Add(pistoletclou);
                     }
                     else {
@@ -41,7 +37,7 @@ dédiées au stockage de matériel, une salle réfrigirée et une porte menant a
                     }
                     break;
                 case "3":
-                    Console.WriteLine("Vous ne trouvez rien d'utile dans la salle réfrigirée.");
+                    Console.WriteLine("Vous trouvez 3 seringues d'adrénaline dans la salle réfrigirée.");
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");

@@ -25,11 +25,8 @@ Vous pouvez fouiller la salle ou vous diriger vers la salle des machines [2].
                     Console.WriteLine("Vous trouvez le lunch de quelqu'un dans une poubelle.");
                     if (!inventory.Contains(lunch))
                     {
-                        lunch.name = "Lunch";
-                        lunch.description = "Le repas oublié de quelqu'un. Soigne 30 PV.";
-                        lunch.id = 1;
-                        lunch.quantity = 2;
                         inventory.Add(lunch);
+                        
                     }
                     else
                     {

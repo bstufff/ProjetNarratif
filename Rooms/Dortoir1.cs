@@ -9,7 +9,7 @@ namespace ProjetNarratif.Rooms
     internal class Dortoir1 : Room
     {
         internal override string CreateDescription() =>
-            @"Vous vous réveillez dans le dortoir du vaisseau par votre estomac vide. 
+            @"Vous vous réveillez dans le dortoir à cause de votre estomac vide. 
 Vous pouvez aller manger au réfectoire ou discuter avec les autres passagers.";
         internal override string CreateOptions() =>
 @"[1] Aller manger au réfectoire

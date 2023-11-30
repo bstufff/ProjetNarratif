@@ -25,10 +25,12 @@ Vous pouvez éteindre les lumières et essayer de les attaquer par derrière, ou
 L'un a un bras bionique, et l'autre a l'air très résistant.");
                     Enemy pirate, pirate2;
                     pirate.pv = 25;
+                    pirate.accuracy = 90;
                     pirate.maxpv = 25;
                     pirate.dmg = 35;
                     pirate.name = "pirate bionique";
                     pirate2.pv = 75;
+                    pirate2.accuracy = 65;
                     pirate2.maxpv = 75;
                     pirate2.dmg = 15;
                     pirate2.name = "pirate résistant";

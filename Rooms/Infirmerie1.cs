@@ -10,7 +10,7 @@ namespace ProjetNarratif.Rooms
     {
         internal override string CreateDescription() =>
             @"Vous êtes dans l'infirmerie. 
-Tous les patients sont déjà partis, mais il en reste un tout au fond de la salle qui n'a pas l'air d'avoir remarqué votre présence.
+Tous les patients ont déjà été évacués, mais il en reste un tout au fond de la salle qui n'a pas l'air d'avoir remarqué votre présence.
 Vous pouvez aussi essayer de trouver quelque chose d'utile dans l'armoire ou le bureau, ou de passer par le couloir ouest.";
         internal override string CreateOptions() =>
 @"[1] Parler au patient
@@ -32,10 +32,6 @@ Vous pouvez aussi essayer de trouver quelque chose d'utile dans l'armoire ou le 
                     if (!inventory.Contains(bandages))
                     {
                         Console.WriteLine("Vous ouvrez l'armoire où se trouve quelques bandages légers.");
-                        bandages.name = "Bandages";
-                        bandages.description = "Bon pour les petites blessures. Soigne 15 PV.";
-                        bandages.id = 5;
-                        bandages.quantity = 5;
                         inventory.Add(bandages);
                     }
                     else
@@ -59,7 +55,7 @@ Vous pouvez aussi essayer de trouver quelque chose d'utile dans l'armoire ou le 
                     }
                     break;
                 case "4":
-                    Console.WriteLine("Vous prenez la porte à votre gauche et rentrez dans le couloir ouest.");
+                    Console.WriteLine("vous prenez la porte à votre gauche et entrez dans le couloir ouest");
                     Game.Transition<CouloirO>();
                     break;
                 default:

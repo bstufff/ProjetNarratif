@@ -10,18 +10,36 @@ namespace ProjetNarratif
         public static List<Item> inventory = new List<Item>();
         public static int dmg = 15, health=100;
         public static byte speed = 3;
-        public static Item badge,lunch,tournevis,briquet,détergent,bandages,pistoletclou,pistoletneut,fusil;
+        public static Item badge,tournevis,briquet;
+        public static Item pistoletclou = new Item(6, 1, "Pistolet à clou", "Un pistolet à clou. 25 DMG 3 Munitions.");
+        public static Item lunch = new Item(1, 2, "Lunch", "Le repas oublié de quelqu'un. Soigne 30 PV.");
+        public static Item détergent = new Item(4,1, "Désinfectant", "Liquide normalement utilisé pour se nettoyer les mains. Très inflammable.");
+        public static Item bandages = new Item(5,5, "Bandages", "Bon pour les petites blessures. Soigne 15 PV.");
+        public static Item pistoletneut = new Item(7,2, "Pistolet neutralisant", "Permet de paralyser un ennemi, faisant 10 dégats et réduisant les dégats du receveur.");
+        public static Item fusil = new Item(8, 10, "Fusil", "Une arme très efficace, 30 DMG 10 munitions.");
+        public static Item adrénaline = new Item(9, 1, "Seringue d'adrénaline", "Augmente la puissance de vos tirs mais réduit vos PV.");
         public struct Enemy {
+            public int accuracy;
             public int pv;
             public int maxpv;
             public int dmg;
             public string name;
         }
-        public struct Item {
+        public class Item {
             public int id;
             public int quantity;
-            public string name;
-            public string description;
+            public string name="NoName";
+            public string description="";
+            public Item(int id1, int quantity1, string name1, string description1)
+            {
+                id=id1;
+                quantity=quantity1;
+                name=name1;
+                description=description1;
+            }
+            public void SetQuantity(int newQuantity) { 
+                quantity = newQuantity;
+            }
         }
 
         static void HPBar(int hp, int maxhp, int type) {
@@ -81,9 +99,13 @@ namespace ProjetNarratif
                         Console.WriteLine("Le {0} attaque ! \nVous avez {1} secondes pour faire une [roulade] pour éviter !", _enemies[ind].name, _speed);
                         entry = Console.ReadLine();
                         timer.Stop();
+
                         if (timer.ElapsedMilliseconds <= (1000 * _speed) && entry == "roulade")
                         {
-                            Console.WriteLine("Attaque évitée !");
+                            Console.WriteLine("Vous évitez son attaque !");
+                        }
+                        else if (rnd.Next(0, 100) > _enemies[ind].accuracy) {
+                            Console.WriteLine($"Le {_enemies[ind].name} attaque, mais il vous manque !");
                         }
                         else
                         {
@@ -135,7 +157,8 @@ namespace ProjetNarratif
                             }
                             else { 
                             Console.WriteLine("Inventaire : \n====================");
-                            foreach (Room.Item item in Room.inventory)
+                            
+                            foreach (Item item in inventory)
                             {
                                 if (item.quantity > 0) {
                                     Console.WriteLine($"[{item.name}] x {item.quantity} : {item.description}");
@@ -152,7 +175,11 @@ namespace ProjetNarratif
                                     case "lunch":
                                     case "Lunch":
                                         _HP += Heal(_HP, MaxHP, 10, "Vous mangez la moitié du lunch et regagnez {0} PV.");
-                                        lunch.quantity -= 1;
+                                        lunch.SetQuantity(lunch.quantity - 1);
+                                        if (lunch.quantity == 0)
+                                        {
+                                            Room.inventory.Remove(lunch);
+                                        }
                                         break;
                                     case "tournevis":
                                     case "Tournevis":
@@ -193,28 +220,39 @@ namespace ProjetNarratif
                                     case "Désinfectant":
                                     case "désinfectant":
                                         Console.WriteLine("Vous répandez le liquide sur le sol en dessous de vos ennemis.");
-                                        détergent.quantity -= 1;
+                                        détergent.SetQuantity(détergent.quantity - 1);
+                                        if (détergent.quantity == 0)
+                                        {
+                                            Room.inventory.Remove(détergent);
+                                        }
                                         break;
                                     case "Bandages":
                                     case "bandages":
                                     case "bandage":
                                     case "Bandage":
                                         _HP += Heal(_HP, MaxHP, 15, "Vous utilisez un bandage et regagnez {0} PV.");
-                                        bandages.quantity -= 1;
+                                        bandages.SetQuantity(bandages.quantity - 1);
+                                        if (bandages.quantity == 0)
+                                        {
+                                            Room.inventory.Remove(bandages);
+                                        }
                                         break;
                                     case "Pistolet à clou":
                                     case "Pistolet a clou":
                                     case "pistolet à clou":
                                     case "pistolet a clou":
-                                        Console.WriteLine($"Vous tirez un clou sur le {_enemies[choix - 1].name} et il perd 30 PV !");
-                                        _enemies[choix - 1].pv -= 30;
+                                        Console.WriteLine($"Vous tirez un clou sur le {_enemies[choix - 1].name} et il perd 25 PV !");
+                                        _enemies[choix - 1].pv -= 25;
                                         if (_enemies[choix - 1].pv <= 0)
                                         {
                                             _enemies[choix - 1].pv = 0;
                                             Console.WriteLine("");
                                             alive--;
                                         }
-                                        pistoletclou.quantity -= 1;
+                                        pistoletclou.SetQuantity(pistoletclou.quantity-1);
+                                        if (pistoletclou.quantity == 0) {
+                                            Room.inventory.Remove(pistoletclou);
+                                        }
                                         break;
                                     case "Pistolet Neutralisant":
                                     case "pistolet neutralisant":
@@ -235,7 +273,11 @@ namespace ProjetNarratif
                                             _enemies[choix - 1].dmg = 0;
                                             Console.WriteLine("");
                                         }
-                                        pistoletneut.quantity -= 1;
+                                        pistoletneut.SetQuantity(pistoletneut.quantity - 1);
+                                        if (pistoletneut.quantity == 0)
+                                        {
+                                            Room.inventory.Remove(pistoletneut);
+                                        }
                                         break;
                                     case "fusil":
                                     case "Fusil":
@@ -247,9 +289,26 @@ namespace ProjetNarratif
                                             Console.WriteLine("");
                                             alive--;
                                         }
-                                        fusil.quantity -= 1;
+                                        fusil.SetQuantity(fusil.quantity - 1);
+                                        if (fusil.quantity == 0)
+                                        {
+                                            Room.inventory.Remove(fusil);
+                                        }
                                         break;
-                                    }
+                                    case "adrénaline":
+                                    case "Adrénaline":
+                                    case "adrenaline":
+                                    case "Adrenaline":
+                                        Console.WriteLine($"Vous utilisez la seringue {_enemies[choix - 1].name}!");
+                                        dmg = 35;
+                                        adrénaline.SetQuantity(adrénaline.quantity - 1);
+                                        if (adrénaline.quantity == 0)
+                                        {
+                                            Room.inventory.Remove(adrénaline);
+                                        }
+                                        break;
+
+                                }
                                 }
                         }
                         else

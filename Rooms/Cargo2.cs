@@ -25,10 +25,6 @@ car des caisses sont éparpillées un peu partout, dont une qui est déjà ouver
                     if (!inventory.Contains(fusil))
                     {
                         Console.WriteLine("Vous trouvez un fusil dans la caisse.");
-                        fusil.name = "Fusil";
-                        fusil.description = "Votre attaque principale fait maintenant le double des dégats.";
-                        fusil.id = 8;
-                        fusil.quantity = 2;
                         inventory.Add(fusil);
                     }
                     else {
@@ -36,13 +32,9 @@ car des caisses sont éparpillées un peu partout, dont une qui est déjà ouver
                     }
                     break;
                 case "2":
-                    if (!inventory.Contains(fusil))
+                    if (!inventory.Contains(adrénaline))
                     {
                         Console.WriteLine("Vous trouvez un fusil dans la caisse.");
-                        fusil.name = "Fusil";
-                        fusil.description = "Fait 30 dégats.";
-                        fusil.id = 8;
-                        fusil.quantity = 2;
                         inventory.Add(fusil);
                     }
                     else

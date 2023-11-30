@@ -31,7 +31,7 @@ while (!game.IsGameOver())
     Console.ForegroundColor = ConsoleColor.Blue;
     Console.WriteLine(game.CurrentRoomOptions);
     Console.ResetColor();
-    Console.Write("Tapez l'option désirée puis appuyez sur entrée : ");
+    Console.Write("\nTapez l'option désirée puis appuyez sur entrée : ");
     string? choice = Console.ReadLine()?.ToLower() ?? "";
     game.ReceiveChoice(choice);
     Console.ReadKey();

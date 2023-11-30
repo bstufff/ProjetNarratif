@@ -13,7 +13,7 @@ namespace ProjetNarratif.Rooms
             
             return @"Vous arrivez enfin devant le quai de lancement juste à temps pour voir la dernière nacelle s'enfuir vers la planète la plus proche.
 
-Les pirates de ce secteur ne sont pas des plus cléments, alors le seul moyen d'arriver sain et sauf à votre destination est de reprendre contrôle du vaisseau.
+Les pirates de ce secteur ne sont pas des plus cléments, alors le seul moyen d'arriver sain et sauf à votre destination est de reprendre le contrôle du vaisseau.
 
 Vous récupérez un briquet utilisable dans une poubelle quand tout à coup, vous entendez un pirate arriver de la salle des machines. 
 Vous pouvez essayer de l'éliminer rapidement ou vous cacher.";
@@ -31,11 +31,12 @@ Vous pouvez essayer de l'éliminer rapidement ou vous cacher.";
                     Console.WriteLine("Vous sautez sur le pirate et vous commencez à l'attaquer !");
                     Enemy pirate;
                     pirate.pv = 50;
+                    pirate.accuracy = 50;
                     pirate.maxpv = 50;
                     pirate.dmg = 10;
                     pirate.name = "pirate";
                     Enemy[] enemies = {pirate};
-                    if (Combat(false,100, health, speed, enemies)==true)
+                    if (Combat(false,health, dmg, speed, enemies)==true)
                     {
                         Console.WriteLine("Vous réussissez à éliminer le pirate sans qu'il ne sonne l'alarme.");
                         Game.Transition<Quai3>();

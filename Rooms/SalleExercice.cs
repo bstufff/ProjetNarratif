@@ -26,10 +26,6 @@ contenant aussi un accès à la salle de stockage réservé à l'équipage.";
                     Console.WriteLine("Vous trouvez dans un des casiers un pistolet paralysant, qui n'est pas très nocif mais permet d'immobiliser un ennemi. ");
                     if (!inventory.Contains(pistoletneut))
                     {
-                        pistoletneut.name = "Pistolet neutralisant";
-                        pistoletneut.description = "Permet de paralyser un ennemi, faisant 10 dégats et réduisant les dégats du receveur.";
-                        pistoletneut.id = 7;
-                        pistoletneut.quantity = 2;
                         inventory.Add(pistoletneut);
                     }
                     else

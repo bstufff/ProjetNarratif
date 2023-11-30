@@ -1,4 +1,5 @@
 ﻿using System.Media;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ProjetNarratif.Rooms
 {
@@ -43,6 +44,7 @@ Pour rentrer chez vous, vous avez pris une navette spatiale, et il ne reste que 
                     Game.Finish();
                     break;
                 case "4":
+                    inventory.Add(pistoletclou);
                     Game.Transition<Quai1>();
                     break;
                 default:
