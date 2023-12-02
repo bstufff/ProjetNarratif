@@ -25,10 +25,10 @@ Vous voyez un pirate énorme se lever avant de se lancer sur vous.";
             switch (choice) {
                 case "1":
                     Enemy gérard;
-                    gérard.pv = 200;
+                    gérard.pv = 150;
                     gérard.accuracy = 95;
-                    gérard.maxpv = 200;
-                    gérard.dmg = 35;
+                    gérard.maxpv = 150;
+                    gérard.dmg = 30;
                     gérard.name = "Gérard";
                     Enemy[] _enemies = { gérard };
                     if (Combat(false, health, dmg, speed, _enemies))
@@ -39,7 +39,7 @@ Vous voyez un pirate énorme se lever avant de se lancer sur vous.";
                     }
                     break;
                 case "2":
-                    Console.WriteLine("Il n'y a pas d'échappatoire !");
+                    Console.WriteLine("Vous essayer de fuir mais PERSONNE N'ÉCHAPPE À GÉRARD !");
                     goto case "1";
                 default:
                     Console.WriteLine("Commande invalide.");

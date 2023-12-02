@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,8 +10,9 @@ namespace ProjetNarratif.Rooms
     internal class Réfectoire1 : Room
     {
         internal override string CreateDescription() {
+            
             Console.WriteLine("Après avoir fini de manger, une alarme retentit : ");
-            Console.ReadKey();
+            if (intro == false) {Console.ReadKey();}
             Console.WriteLine(@"
           _   _             _   _                  
      /\  | | | |           | | (_)              _  
@@ -43,7 +45,7 @@ namespace ProjetNarratif.Rooms
   \___| \_/ \__,_|\___|\__,_|\___/___| |_|_| |_| |_|_| |_| |_|\___|\__,_|_|\__,_|\__\___|_| |_| |_|      
 
 ");
-            Console.ReadKey();
+            if (intro == false) { Console.ReadKey(); }
             return @"
 Le message se coupe, et une musique enfantine se met à jouer.
 <???> : BONJOUR ! BONJOUR ! 
@@ -65,11 +67,13 @@ Pour y aller, vous pouvez essayer de passer par la salle des communications, l'i
 [4] Passer par le couloir ouest";
 
 
-
+        
         internal override void ReceiveChoice(string choice)
         {
+            Room.intro = true;
             switch (choice)
             {
+                
                 case "2":
                     Console.WriteLine("La porte de la salle des communications nécessite un code : ");
                     int code;

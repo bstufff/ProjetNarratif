@@ -32,6 +32,18 @@ Pour rentrer chez vous, vous avez pris une navette spatiale, et il ne reste que 
             switch (choice)
             {
                 case "1":
+                    if (first == true)
+                    {
+                        byte option;
+                        setting: Console.WriteLine("Avant de commencer, les combats dans ce jeu ont des limites de temps.");
+                        Console.WriteLine("Vous pouvez mettre une valeur très grande (max 255) pour ne pas avoir le stress de ces limites.");
+                        Console.WriteLine("La valeur par défaut est 4. Quelle devrait être la longueur des les limites de temps ?");
+                        try { option = Convert.ToByte(Console.ReadLine()); }
+                        catch { Console.WriteLine("Cette valeur n'est pas valide !"); goto setting; }
+                        speed = option;
+                        Console.WriteLine($"La vitesse de jeu est maintenant de {option}. Vous pouvez la changer dans les options.");
+                        first= false;
+                    }
                     Console.WriteLine("Le jeu va maintenant commencer, appuyez sur entrée pour continuer.");
                     Game.Transition<Dortoir1>();
                     break;
@@ -47,7 +59,7 @@ Pour rentrer chez vous, vous avez pris une navette spatiale, et il ne reste que 
                     inventory.Add(détergent);
                     inventory.Add(briquet);
                     inventory.Add(fusil);
-                    Game.Transition<Cockpit>();
+                    Game.Transition<Quai1>();
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");

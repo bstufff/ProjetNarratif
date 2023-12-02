@@ -9,9 +9,10 @@ namespace ProjetNarratif
         internal abstract string CreateDescription();
         public static List<Item> inventory = new List<Item>();
         public static int dmg = 15, health=100;
-        public static byte speed = 3;
+        public static byte speed = 4;
+        public static bool intro = false, first = true;
         public static Item badge = new Item(0, 1, "Badge", "Un badge permettant d'accéder aux zones réservées à l'équipage.");
-        public static Item tournevis = new Item(2, 1, "Tournevis", "Un outil bien utile pour tout ce qui concerne des vis. Fait 10 DMG");
+        public static Item tournevis = new Item(2, 1, "Tournevis", "Un outil bien utile pour tout ce qui concerne des vis. Fait 15 DMG");
         public static Item briquet = new Item(3,1,"Briquet", "Produit une flammèche.");
         public static Item pistoletclou = new Item(6, 6, "Pistolet à clou", "Un pistolet à clou. 25 DMG 6 Munitions.");
         public static Item lunch = new Item(1, 2, "Lunch", "Le repas oublié de quelqu'un. Soigne 30 PV.");
@@ -78,7 +79,7 @@ namespace ProjetNarratif
             if (priority == true)
             {
                 action = 1;
-                Console.WriteLine("Vous prenez l'ennemi par suprise et vous attaquez en premier.");
+                Console.WriteLine("Vous prenez l'ennemi par suprise et vous attaquez en premier !");
             }
             while (alive > 0)
             {
@@ -89,7 +90,7 @@ namespace ProjetNarratif
                     return false;
                 }
                 timer.Reset();
-                string entry;
+                string entry; 
                 
                 HPBar(_HP, MaxHP, 0);
                 
@@ -98,11 +99,13 @@ namespace ProjetNarratif
                     case 0:
                         int ind = rnd.Next(0, _enemies.Length);
                         timer.Start();
-                        Console.WriteLine("Le {0} attaque ! \nVous avez {1} secondes pour faire une [roulade] pour éviter !", _enemies[ind].name, _speed);
+                        string[] ripostes = {"rouler","esquiver", "plonger", "bloquer" };
+                        string current = ripostes[rnd.Next(0,4)];
+                        Console.WriteLine("Le {0} attaque ! \nVous avez {1} secondes pour [{2}] !", _enemies[ind].name, _speed,current);
                         entry = Console.ReadLine();
                         timer.Stop();
 
-                        if (timer.ElapsedMilliseconds <= (1000 * _speed) && entry == "roulade")
+                        if (timer.ElapsedMilliseconds <= (1000 * _speed) && entry == current)
                         {
                             Console.WriteLine("Vous évitez son attaque !");
                         }
@@ -119,6 +122,8 @@ namespace ProjetNarratif
                     case 1:
                         if (_enemies.Length == 1) {
                             choix = 1;
+                            Console.Write("[1] Le {0} ", _enemies[0].name);
+                            HPBar(_enemies[0].pv, _enemies[0].maxpv, 1);
                             goto skip;
                         }
                         Console.WriteLine("Quel ennemi voulez vous cibler ?");
@@ -166,7 +171,10 @@ namespace ProjetNarratif
                                     Console.WriteLine($"[{item.name}] x {item.quantity} : {item.description}");
                                 }
                             }
-                            Console.WriteLine("Quel objet voulez-vous utiliser ?");
+                            Console.Write("\nQuel objet voulez-vous utiliser ? "); 
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("(Vous n'êtes pas limité par le temps)");
+                            Console.ResetColor();
                             string chosen = Console.ReadLine();
                                 switch (chosen)
                                 {
