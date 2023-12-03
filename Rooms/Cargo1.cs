@@ -10,8 +10,8 @@ namespace ProjetNarratif.Rooms
     {
         internal override string CreateDescription()
         {
-            return @"Vous êtes dans la salle de stockage : on y retrouve des rangées d'étagères 
-dédiées au stockage de matériel, une salle réfrigérée et une porte menant au quai de lancement.";
+            return @"Vous êtes dans la salle de stockage : on y retrouve des rangées d'étagères et de cartons
+où est stocké tout le matériel nécessaire lors du voyage, mais aussi une salle réfrigérée et une porte menant au quai de lancement.";
         }
         internal override string CreateOptions() =>
 @"[1] Partir vers le quai de lancement
@@ -33,11 +33,11 @@ dédiées au stockage de matériel, une salle réfrigérée et une porte menant 
                         inventory.Add(pistoletclou);
                     }
                     else {
-                        Console.WriteLine("Vous ne trouvez rien de plus dans la salle.");
+                        Console.WriteLine("Vous ne trouvez rien de plus dans les étagères.");
                     }
                     break;
                 case "3":
-                    Console.WriteLine("Vous ne trouvez rien de plus dans la salle réfrigirée..");
+                    Console.WriteLine("Vous ne trouvez rien de plus dans la salle réfrigirée...");
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");

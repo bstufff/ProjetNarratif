@@ -16,6 +16,8 @@ _________ _______  _______  _______ _________ _                 _______
    | |   | (      | (\ (   | |   | |   | |   | | \   || |   | |      ) |
    | |   | (____/\| ) \ \__| )   ( |___) (___| )  \  || (___) |/\____) |
    )_(   (_______/|/   \__/|/     \|\_______/|/    )_)(_______)\_______)
+
+Présenté par Arthur Bohn 
                                                                                                                                                                         
 Vous êtes un soldat qui vient de finir son service et qui retourne enfin chez lui.
 Pour rentrer chez vous, vous avez pris une navette spatiale, et il ne reste que quelques jours avant votre arrivée.");
@@ -35,11 +37,12 @@ Pour rentrer chez vous, vous avez pris une navette spatiale, et il ne reste que 
                     if (first == true)
                     {
                         byte option;
-                        setting: Console.WriteLine("Avant de commencer, les combats dans ce jeu ont des limites de temps.");
+                        setting: Console.Clear();
+                        Console.WriteLine("Avant de commencer, les combats dans ce jeu ont des limites de temps.");
                         Console.WriteLine("Vous pouvez mettre une valeur très grande (max 255) pour ne pas avoir le stress de ces limites.");
-                        Console.WriteLine("La valeur par défaut est 4. Quelle devrait être la longueur des les limites de temps ?");
+                        Console.WriteLine($"La valeur actuelle est {speed} secondes. Quelle devrait être la longueur des limites de temps ?");
                         try { option = Convert.ToByte(Console.ReadLine()); }
-                        catch { Console.WriteLine("Cette valeur n'est pas valide !"); goto setting; }
+                        catch { Console.WriteLine("Cette valeur n'est pas valide !"); Console.ReadKey(); ; goto setting; }
                         speed = option;
                         Console.WriteLine($"La vitesse de jeu est maintenant de {option}. Vous pouvez la changer dans les options.");
                         first= false;
@@ -59,7 +62,7 @@ Pour rentrer chez vous, vous avez pris une navette spatiale, et il ne reste que 
                     inventory.Add(détergent);
                     inventory.Add(briquet);
                     inventory.Add(fusil);
-                    Game.Transition<Quai1>();
+                    Game.Transition<Engine1>();
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");

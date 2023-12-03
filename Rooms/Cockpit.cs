@@ -10,10 +10,12 @@ namespace ProjetNarratif.Rooms
     {
         internal override string CreateDescription()
         {
-            return @"<MERCURIUS> : Ah, mais QUI avons nous là ? JE ne m'attendais point à ce que QUELQU'UN arrive JUSQU'ICI sans se faire REPÉRER.
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(@"<MERCURIUS> : Ah, mais QUI avons nous là ? JE ne m'attendais point à ce que QUELQU'UN arrive JUSQU'ICI sans se faire REPÉRER.
 <MERCURIUS> : Cependant, tu arrives BIEN TROP TARD, car j'ai déjà pris CONTRÔLE de ce vaisseau. Et je ne compte PAS laisser QUI QUE SE SOIT interférer avec mes plans !
-<MERCURIUS> : HÉ ! GÉRARD ! IL EN RESTE UN JUSTE ICI !
-Vous voyez un pirate énorme se lever avant de se lancer sur vous.";
+<MERCURIUS> : HÉ ! GÉRARD ! IL EN RESTE UN JUSTE ICI !");
+            Console.ResetColor();
+return "Vous voyez un pirate énorme se lever avant de se lancer sur vous.";
         }
         internal override string CreateOptions()
         {
@@ -37,9 +39,10 @@ Vous voyez un pirate énorme se lever avant de se lancer sur vous.";
                         Console.ReadKey();
                         Game.Transition<Réfectoire2>();
                     }
+                    else { Game.Transition<Menu>(); }
                     break;
                 case "2":
-                    Console.WriteLine("Vous essayer de fuir mais PERSONNE N'ÉCHAPPE À GÉRARD !");
+                    Console.WriteLine("Vous essayer de fuir mais Gérard vous rattrape !");
                     goto case "1";
                 default:
                     Console.WriteLine("Commande invalide.");

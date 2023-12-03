@@ -35,6 +35,7 @@ Quelques jours après, vous atterrissez enfin sur votre planète, couvert d'honn
 FIN 1");
                         Game.Finish();
                     }
+                    else { Game.Transition<Menu>(); }
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");

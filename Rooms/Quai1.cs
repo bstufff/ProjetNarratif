@@ -16,6 +16,7 @@ namespace ProjetNarratif.Rooms
 Les pirates de ce secteur ne sont pas des plus cléments, alors le seul moyen d'arriver sain et sauf à votre destination est de reprendre le contrôle du vaisseau.
 
 Vous récupérez un briquet utilisable dans une poubelle quand tout à coup, vous entendez un pirate arriver de la salle des machines. 
+
 Vous pouvez essayer de l'éliminer rapidement ou vous cacher.";
             
         }

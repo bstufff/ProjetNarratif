@@ -25,6 +25,7 @@ game.Add(new Communications2());
 game.Add(new Cargo2());
 game.Add(new Réfectoire2());
 game.Add(new Cockpit());
+game.Add(new Réfectoire3());
 while (!game.IsGameOver())
 {
     Game.DisplayInv();

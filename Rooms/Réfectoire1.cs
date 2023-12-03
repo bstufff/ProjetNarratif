@@ -15,49 +15,46 @@ namespace ProjetNarratif.Rooms
             if (intro == false) {Console.ReadKey();}
             Console.WriteLine(@"
           _   _             _   _                  
-     /\  | | | |           | | (_)              _  
-    /  \ | |_| |_ ___ _ __ | |_ _  ___  _ __   (_) 
+     /\  | | | |           | | (_)                _  
+    /  \ | |_| |_ ___ _ __ | |_ _  ___  _ __     (_) 
    / /\ \| __| __/ _ \ '_ \| __| |/ _ \| '_ \      
-  / ____ \ |_| ||  __/ | | | |_| | (_) | | | |  _  
- /_/    \_\__|\__\___|_| |_|\__|_|\___/|_| |_| (_) 
-                                                   
-  _                       _                                      _    
- | |                     (_)                                    | |   
- | |     ___  __   ____ _ _ ___ ___  ___  __ _ _   _    ___  ___| |_  
- | |    / _ \ \ \ / / _` | / __/ __|/ _ \/ _` | | | |  / _ \/ __| __| 
- | |___|  __/  \ V / (_| | \__ \__ \  __/ (_| | |_| | |  __/\__ \ |_  
- |______\___|   \_/ \__,_|_|___/___/\___|\__,_|\__,_|  \___||___/\__| 
-                                                                      
-          _   _                      __    __      __        _ _ _          
-     /\  | | | |                    /_/    \ \    / /       (_) | |         
-    /  \ | |_| |_ __ _  __ _ _   _  ___     \ \  / /__ _   _ _| | | ___ ____
-   / /\ \| __| __/ _` |/ _` | | | |/ _ \     \ \/ / _ \ | | | | | |/ _ \_  /
-  / ____ \ |_| || (_| | (_| | |_| |  __/_     \  /  __/ |_| | | | |  __// / 
- /_/    \_\__|\__\__,_|\__, |\__,_|\___(_)     \/ \___|\__,_|_|_|_|\___/___|
-                          | |                                               
-                          |_|                                               
-
-    __                                  _                       __     _ _       _                       
-   /_/                                 (_)                     /_/    | (_)     | |                      
-   _____   ____ _  ___ _   _  ___ ____  _ _ __ ___  _ __ ___   ___  __| |_  __ _| |_ ___ _ __ ___ ______ 
-  / _ \ \ / / _` |/ __| | | |/ _ \_  / | | '_ ` _ \| '_ ` _ \ / _ \/ _` | |/ _` | __/ _ \ '_ ` _ \______|
- |  __/\ V / (_| | (__| |_| |  __// /  | | | | | | | | | | | |  __/ (_| | | (_| | ||  __/ | | | | |      
-  \___| \_/ \__,_|\___|\__,_|\___/___| |_|_| |_| |_|_| |_| |_|\___|\__,_|_|\__,_|\__\___|_| |_| |_|      
-
+  / ____ \ |_| ||  __/ | | | |_| | (_) | | | |    _  
+ /_/    \_\__|\__\___|_| |_|\__|_|\___/|_| |_|   (_)       
+  _                          _                                          _    
+ | |                        (_)                                        | |   
+ | |     ___     __   ____ _ _ ___ ___  ___  __ _ _   _        ___  ___| |_  
+ | |    / _ \    \ \ / / _` | / __/ __|/ _ \/ _` | | | |      / _ \/ __| __| 
+ | |___|  __/     \ V / (_| | \__ \__ \  __/ (_| | |_| |     |  __/\__ \ |_  
+ |______\___|      \_/ \__,_|_|___/___/\___|\__,_|\__,_|      \___||___/\__|                                                     
+        _   _                      __                         _ _ _          
+       | | | |                    /_/                        (_) | |         
+   __ _| |_| |_ __ _  __ _ _   _  ___        __   _____ _   _ _| | | ___ ____
+  / _` | __| __/ _` |/ _` | | | |/ _ \       \ \ / / _ \ | | | | | |/ _ \_  /
+ | (_| | |_| || (_| | (_| | |_| |  __/_       \ V /  __/ |_| | | | |  __// / 
+  \__,_|\__|\__\__,_|\__, |\__,_|\___( )       \_/ \___|\__,_|_|_|_|\___/___|                          
+    __                  | |          |/   _                       __     _ _       _                       
+   /_/                  |_|              (_)                     /_/    | (_)     | |                      
+   _____   ____ _  ___ _   _  ___ ____    _ _ __ ___  _ __ ___   ___  __| |_  __ _| |_ ___ _ __ ___ ______ 
+  / _ \ \ / / _` |/ __| | | |/ _ \_  /   | | '_ ` _ \| '_ ` _ \ / _ \/ _` | |/ _` | __/ _ \ '_ ` _ \______|
+ |  __/\ V / (_| | (__| |_| |  __// /    | | | | | | | | | | | |  __/ (_| | | (_| | ||  __/ | | | | |      
+  \___| \_/ \__,_|\___|\__,_|\___/___|   |_|_| |_| |_|_| |_| |_|\___|\__,_|_|\__,_|\__\___|_| |_| |_|      
 ");
+            
+            
+            Console.WriteLine("Le message se coupe, et une musique enfantine se met à jouer.");
             if (intro == false) { Console.ReadKey(); }
-            return @"
-Le message se coupe, et une musique enfantine se met à jouer.
-<???> : BONJOUR ! BONJOUR ! 
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Clear();
+            Console.WriteLine(@"<???> : BONJOUR ! BONJOUR ! 
 
 <???> : Si vous entendez CECI, c'est que votre message d'urgence BEAUCOUP TROP BRUYANT vient de se faire INTERROMPRE,
 et que CE vaisseau sera en MA possession dans QUELQUES MINUTES ! 
 
-<???> : ET OUI, vous aurez aujourd'hui le BONHEUR de vous faire ABORDER par 
+<Mercurius> : ET OUI, vous aurez aujourd'hui le BONHEUR de vous faire ABORDER par 
 le pirate le plus CHARISMATIQUE du secteur, le fameux MERCURIUS !
-<???> : À TOUT DE SUITE !
-
-Il y a probablement des nacelles de secours au niveau du quai de lancement.
+<Mercurius> : À TOUT DE SUITE !");
+            Console.ResetColor();
+            return @"Il y a probablement des nacelles de secours au niveau du quai de lancement.
 Pour y aller, vous pouvez essayer de passer par la salle des communications, l'infirmerie, le couloir ouest, ou le dortoir.";
         }
         internal override string CreateOptions() =>
@@ -73,22 +70,21 @@ Pour y aller, vous pouvez essayer de passer par la salle des communications, l'i
             Room.intro = true;
             switch (choice)
             {
-                
+                case "1":
+                    Console.WriteLine("Vous retournez sur vos pas et entrez dans le dortoir.");
+                    Game.Transition<Dortoir2>();
+                    break;
                 case "2":
                     Console.WriteLine("La porte de la salle des communications nécessite un code : ");
-                    int code;
+                    int code=0;
                     try { code = Convert.ToInt32(Console.ReadLine()); }
                     catch { Console.WriteLine("Le code est invalide !"); }
-                    if (choice == "3952")
+                    if (code == 3952)
                     {
                         Console.WriteLine("Vous rentrez le code et entrez dans la pièce.");
                         Game.Transition<Communications>();
                     }
                     else { Console.WriteLine("Vous entrez le code, mais il est incorrect et la porte reste fermée. "); }
-                    break;
-                case "1":
-                    Console.WriteLine("Vous retournez sur vos pas et entrez dans le dortoir.");
-                    Game.Transition<Dortoir2>();
                     break;
                 case "3":
                     Console.WriteLine("Vous vous dirigez vers l'infirmerie.");

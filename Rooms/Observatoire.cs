@@ -40,11 +40,7 @@ Vous pouvez aussi fouiller la salle ou juste profiter de la vue.";
                     
                     break;
                 case "3":
-                    Console.WriteLine(@"Pendant quelques instants, vous observez le panorama incroyable sous vos yeux. 
-Vous remarquez un avis destiné à l'équipage derrière une porte :
-                    AVIS
-Le code de la salle des communications a été changé. 
-    La bonne combinaison est maintenant 3952.");
+                    Console.WriteLine(@"Pendant quelques instants, vous observez le panorama incroyable sous vos yeux.");
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");

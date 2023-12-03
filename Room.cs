@@ -83,9 +83,11 @@ namespace ProjetNarratif
             }
             while (alive > 0)
             {
+                choix:
                 if (_HP <= 0)
                 {
                     Console.WriteLine("Vous êtes mort !");
+                    Mort();
                     battle.Stop();
                     return false;
                 }
@@ -97,7 +99,12 @@ namespace ProjetNarratif
                 switch (action)
                 {
                     case 0:
-                        int ind = rnd.Next(0, _enemies.Length);
+                        int ind;
+                        do
+                        {
+                            ind = rnd.Next(0, _enemies.Length);
+                        }
+                        while (_enemies[ind].pv == 0);
                         timer.Start();
                         string[] ripostes = {"rouler","esquiver", "plonger", "bloquer" };
                         string current = ripostes[rnd.Next(0,4)];
@@ -127,7 +134,7 @@ namespace ProjetNarratif
                             goto skip;
                         }
                         Console.WriteLine("Quel ennemi voulez vous cibler ?");
-                    choix: int x = 0;
+                        int x = 0;
                         foreach (Enemy enemy in _enemies)
                         {
                             Console.Write("[{0}] Le {1} ", x+1,_enemies[x].name);
@@ -135,10 +142,16 @@ namespace ProjetNarratif
                             x++;
                         }
                         try { choix = Convert.ToInt32(Console.ReadLine()); }
-                        catch { Console.WriteLine("Valeur invalide !"); goto choix; }
+                        catch { Console.WriteLine("Valeur invalide !");
+                            Console.ReadKey();
+                            Console.Clear();
+                            goto choix;
+                        }
                         if (_enemies[choix - 1].pv <= 0)
                         {
                             Console.WriteLine("Cet ennemi est déja hors de combat !");
+                            Console.ReadKey();
+                            Console.Clear();
                             goto choix;
                         }
                         timer.Restart();
@@ -357,6 +370,13 @@ namespace ProjetNarratif
                 Console.WriteLine("Vous ne pouvez pas vous soigner plus que ça !");
                 return 0;
             }
+        }
+        static void Mort() {
+            inventory.Clear();
+            dmg = 15;
+            health = 100;
+            intro = false;
+            first = true;
         }
         internal abstract void ReceiveChoice(string choice);
 

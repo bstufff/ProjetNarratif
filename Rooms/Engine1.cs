@@ -28,17 +28,17 @@ Vous pouvez essayer de les affronter directement ou essayer de trouver quelque c
                      Console.WriteLine("Vous vous lancez sur le groupe de pirates !");
                      Enemy pirate, pirate2, souschef;
                      pirate.pv = 50;
-                     pirate.accuracy = 75;
+                     pirate.accuracy = 85;
                      pirate.maxpv = 50;
                         pirate.dmg = 15;
-                        pirate.name = "garde pirate";
+                        pirate.name = "garde pirate de droite";
                         pirate2.pv = 50;
-                        pirate2.accuracy = 75;
+                        pirate2.accuracy = 85;
                         pirate2.maxpv = 50;
                         pirate2.dmg = 15;
-                        pirate2.name = "garde pirate";
+                        pirate2.name = "garde pirate de droite";
                         souschef.pv = 120;
-                        souschef.accuracy = 85;
+                        souschef.accuracy = 100;
                         souschef.maxpv = 120;
                         souschef.dmg = 25;
                         souschef.name = "lieutenant";
@@ -77,6 +77,7 @@ Vous pouvez essayer de les affronter directement ou essayer de trouver quelque c
                                 goto skip;
                         }
                     }
+                    else { Game.Transition<Menu>(); }
                     break;
                 case "2":
                     Console.WriteLine("Vous trouvez un fumigène dans une caisse, et vous l'utilisez pour répandre de la fumée de la salle avant d'attaquer le groupe.");
@@ -85,12 +86,12 @@ Vous pouvez essayer de les affronter directement ou essayer de trouver quelque c
                     pirate.accuracy = 50;
                     pirate.maxpv = 50;
                     pirate.dmg = 15;
-                    pirate.name = "garde pirate";
+                    pirate.name = "garde pirate de droite";
                     pirate2.pv = 50;
                     pirate2.accuracy = 50;
                     pirate2.maxpv = 50;
                     pirate2.dmg = 15;
-                    pirate2.name = "garde pirate";
+                    pirate2.name = "garde pirate de gauche";
                     souschef.pv = 120;
                     souschef.accuracy = 75;
                     souschef.maxpv = 120;

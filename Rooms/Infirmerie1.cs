@@ -22,10 +22,12 @@ Vous pouvez aussi essayer de trouver quelque chose d'utile dans l'armoire ou le 
             switch (choice)
             {
                 case "1":
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Le dernier patient remue, et se met à parler d'une voix très grave :");
                     Console.ReadKey();
                     Console.WriteLine("<Patient> : Ce sont les androides qui ont fait ça ! Ils nous volent nos emplois !");
                     Console.ReadKey();
+                    Console.ResetColor();
                     Console.WriteLine("Vous lui proposez de partir avec vous, mais il ne semble pas vous comprendre.");
                     break;
                 case "2":
@@ -36,7 +38,7 @@ Vous pouvez aussi essayer de trouver quelque chose d'utile dans l'armoire ou le 
                     }
                     else
                     {
-                        Console.WriteLine("Vous ne trouvez rien de plus dans la salle.");
+                        Console.WriteLine("Vous ne trouvez rien de plus dans l'armoire.");
                     }
                     break;
                 case "3":
@@ -47,7 +49,7 @@ Vous pouvez aussi essayer de trouver quelque chose d'utile dans l'armoire ou le 
                     }
                     else
                     {
-                        Console.WriteLine("Vous ne trouvez rien de plus dans la salle.");
+                        Console.WriteLine("Vous ne trouvez rien de plus dans le bureau.");
                     }
                     break;
                 case "4":
