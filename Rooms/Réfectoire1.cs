@@ -32,12 +32,12 @@ namespace ProjetNarratif.Rooms
   / _` | __| __/ _` |/ _` | | | |/ _ \       \ \ / / _ \ | | | | | |/ _ \_  /
  | (_| | |_| || (_| | (_| | |_| |  __/_       \ V /  __/ |_| | | | |  __// / 
   \__,_|\__|\__\__,_|\__, |\__,_|\___( )       \_/ \___|\__,_|_|_|_|\___/___|                          
-    __                  | |          |/   _                       __     _ _       _                       
-   /_/                  |_|              (_)                     /_/    | (_)     | |                      
-   _____   ____ _  ___ _   _  ___ ____    _ _ __ ___  _ __ ___   ___  __| |_  __ _| |_ ___ _ __ ___ ______ 
-  / _ \ \ / / _` |/ __| | | |/ _ \_  /   | | '_ ` _ \| '_ ` _ \ / _ \/ _` | |/ _` | __/ _ \ '_ ` _ \______|
- |  __/\ V / (_| | (__| |_| |  __// /    | | | | | | | | | | | |  __/ (_| | | (_| | ||  __/ | | | | |      
-  \___| \_/ \__,_|\___|\__,_|\___/___|   |_|_| |_| |_|_| |_| |_|\___|\__,_|_|\__,_|\__\___|_| |_| |_|      
+    __                  | |          |/    _                       __     _ _       _                       
+   /_/                  |_|               (_)                     /_/    | (_)     | |                      
+   _____   ____ _  ___ _   _  ___ _ __     _ _ __ ___  _ __ ___   ___  __| |_  __ _| |_ ___ _ __ ___ ______ 
+  / _ \ \ / / _` |/ __| | | |/ _ \ '__|   | | '_ ` _ \| '_ ` _ \ / _ \/ _` | |/ _` | __/ _ \ '_ ` _ \______|
+ |  __/\ V / (_| | (__| |_| |  __/ |      | | | | | | | | | | | |  __/ (_| | | (_| | ||  __/ | | | | |      
+  \___| \_/ \__,_|\___|\__,_|\___|_|      |_|_| |_| |_|_| |_| |_|\___|\__,_|_|\__,_|\__\___|_| |_| |_|      
 ");
             
             
@@ -55,7 +55,7 @@ le pirate le plus CHARISMATIQUE du secteur, le fameux MERCURIUS !
 <Mercurius> : À TOUT DE SUITE !");
             Console.ResetColor();
             return @"Il y a probablement des nacelles de secours au niveau du quai de lancement.
-Pour y aller, vous pouvez essayer de passer par la salle des communications, l'infirmerie, le couloir ouest, ou le dortoir.";
+Pour y aller, vous pouvez essayer de passer par la salle des communications, l'infirmerie, le À couloir ouest, ou le dortoir.";
         }
         internal override string CreateOptions() =>
 @"[1] Retourner au dortoir

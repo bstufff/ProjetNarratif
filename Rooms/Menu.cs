@@ -15,7 +15,7 @@ _________ _______  _______  _______ _________ _                 _______
    | |   |  __)   |     __)| |(_)| |   | |   | (\ \) || |   | |(_____  )
    | |   | (      | (\ (   | |   | |   | |   | | \   || |   | |      ) |
    | |   | (____/\| ) \ \__| )   ( |___) (___| )  \  || (___) |/\____) |
-   )_(   (_______/|/   \__/|/     \|\_______/|/    )_)(_______)\_______)
+   )_(   (_______/|/   \__/|/     \|\_______/|/    )_)(_______)\_______)                v4.0 12-03-2023
 
 Présenté par Arthur Bohn 
                                                                                                                                                                         
@@ -47,11 +47,11 @@ Pour rentrer chez vous, vous avez pris une navette spatiale, et il ne reste que 
                         Console.WriteLine($"La vitesse de jeu est maintenant de {option}. Vous pouvez la changer dans les options.");
                         first= false;
                     }
-                    Console.WriteLine("Le jeu va maintenant commencer, appuyez sur entrée pour continuer.");
+                    Console.WriteLine("Le jeu va maintenant commencer, appuyer sur Entrée pour continuer.");
                     Game.Transition<Dortoir1>();
                     break;
                 case "2":
-                    Console.WriteLine("Ouverture des options, appuyez sur entrée pour continuer");
+                    Console.WriteLine("Ouverture des options, appuyer sur Entrée pour continuer");
                     Game.Transition<Options>();
                     break;
                 case "3":

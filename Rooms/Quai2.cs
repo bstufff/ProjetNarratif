@@ -11,7 +11,7 @@ namespace ProjetNarratif.Rooms
         internal override string CreateDescription()
         {
             return @"Vous arrivez devant le quai de lancement, où la dernière nacelle se prépare à partir.
-Vous pouvez aussi rester et essayer de reprendre le vaisseau au pirates, mais cela ne sera pas facile.";
+Vous pouvez aussi rester et essayer de reprendre le vaisseau aux pirates, mais cela ne sera pas facile.";
         }
         internal override string CreateOptions() =>
             @"[1] Fuir le vaisseau
@@ -22,9 +22,10 @@ Vous pouvez aussi rester et essayer de reprendre le vaisseau au pirates, mais ce
             switch (choice)
             {
                 case "1":
-                    Console.WriteLine(@"Vous réussissez à grimper dans la nacelle juste avant son départ, abandonnant
-tous ceux qui n'ont pas atteint les nacelles à temps. Ce n'était peut-être pas la façon 
-la plus honorable de s'en sortir, mais au moins vous êtes encore vivant.
+                    Console.WriteLine(@"Vous réussissez à grimper dans la nacelle juste avant son départ, en sachant
+très bien que tous ceux qui n'ont pas pu fuir finiront réduits à la servitude, voire exécutés. 
+Vous auriez probablement pu les sauver, mais au moins vous êtes sain et sauf.
+
 
 FIN 3");
                     Game.Finish();

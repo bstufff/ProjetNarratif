@@ -142,7 +142,16 @@ namespace ProjetNarratif
                             x++;
                         }
                         try { choix = Convert.ToInt32(Console.ReadLine()); }
-                        catch { Console.WriteLine("Valeur invalide !");
+                        catch { 
+                            Console.WriteLine("Valeur invalide !");
+                            Console.ReadKey();
+                            Console.Clear();
+                            goto choix;
+                        }
+                        try { int forget = _enemies[choix - 1].pv; }
+                        catch
+                        {
+                            Console.WriteLine("Valeur invalide !");
                             Console.ReadKey();
                             Console.Clear();
                             goto choix;

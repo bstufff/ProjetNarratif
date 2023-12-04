@@ -22,8 +22,9 @@ Vous pouvez aussi essayer de trouver quelque chose d'utile dans l'armoire ou le 
             switch (choice)
             {
                 case "1":
-                    Console.ForegroundColor = ConsoleColor.Green;
+                    
                     Console.WriteLine("Le dernier patient remue, et se met à parler d'une voix très grave :");
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.ReadKey();
                     Console.WriteLine("<Patient> : Ce sont les androides qui ont fait ça ! Ils nous volent nos emplois !");
                     Console.ReadKey();
