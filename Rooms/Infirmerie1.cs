@@ -22,7 +22,7 @@ Vous pouvez aussi essayer de trouver quelque chose d'utile dans l'armoire ou le 
             switch (choice)
             {
                 case "1":
-                    
+
                     Console.WriteLine("Le dernier patient remue, et se met à parler d'une voix très grave :");
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.ReadKey();
@@ -30,6 +30,37 @@ Vous pouvez aussi essayer de trouver quelque chose d'utile dans l'armoire ou le 
                     Console.ReadKey();
                     Console.ResetColor();
                     Console.WriteLine("Vous lui proposez de partir avec vous, mais il ne semble pas vous comprendre.");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.ReadKey();
+                    Console.WriteLine("Vous, très cher, j'aurais une charade pour vous. ");
+                    int guess = 1;
+                    while (guess <= 3)
+                    {
+                        Console.WriteLine("\nMon premier est le plus fort, plus que n'importe qui d'autre.\r\nMon deuxième signifie l'excès, comme il y en a trop.\r\nMon troisième est un chiffre, qui influence le futur des élèves.\r\nMon tout est un voyageur de l'espace. \r\nQui suis-je ?");
+                        Console.ResetColor();
+                        string entry = Console.ReadLine().ToLower();
+                        if (entry == "astronaute")
+                        {
+                            Console.WriteLine($"Bravo, vous avez trouvé ! En {guess} essais !");
+                            Console.WriteLine("Bien joué.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Mauvaise réponse !");
+                            switch (guess)
+                            {
+                                case 1:
+                                    Console.WriteLine("Mon troisième est aussi utilisé pour décrire une musique.");
+                                    break;
+                                case 2:
+                                    Console.WriteLine("Mon premier est aussi présent dans un jeu de cartes.");
+                                    break;
+                            }
+                            Console.ReadKey();
+                            guess++;
+                        }
+                    }
+
                     break;
                 case "2":
                     if (!inventory.Contains(bandages))
